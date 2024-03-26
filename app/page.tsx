@@ -1,7 +1,12 @@
+import { ThemeToggle } from '@/components/theme/toggle'
+
 export default function Home() {
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-      <div className='my-12 space-y-8'>
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <div className="mx-12 my-8">
+        <ThemeToggle className="text-6xl transition" />
+      </div>
+      <div className="my-12 space-y-8">
         <h2 className={`font-cap text-3xl font-semibold`}>
           Cap Lingo - Stay motivated. Backed by science. anytime, anywhere.
         </h2>

@@ -1,6 +1,6 @@
 {
   "singleQuote": true,
-  "jsxSingleQuote": true,
+  "jsxSingleQuote": false,
   "tabWidth": 2,
   "trailingComma": "es5",
   "semi": false,
