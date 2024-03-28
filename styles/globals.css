@@ -4,25 +4,33 @@
 
 @layer base {
   :root {
-    --background: 150 8% 95%;
+    --background: 0 0% 98%;
     --foreground: 120 3% 15%;
-    --card: 140 10% 94%;
+    --card: 0 0% 98%;
     --card-foreground: 120 3% 15%;
-    --popover: 140 10% 94%;
+    --popover: 0 0% 98%;
     --popover-foreground: 120 3% 15%;
     --primary: 142 71% 45%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 140 12% 91%;
-    --secondary-foreground: 120 3% 15%;
-    --muted: 135 8% 91%;
-    --muted-foreground: 143 5% 45%;
-    --accent: 135 8% 91%;
+    --primary-depth: 142 76% 36%;
+    --secondary: 198 93% 60%;
+    --secondary-foreground: 210 40% 98%;
+    --secondary-depth: 199 89% 48%;
+    --muted: 150 7% 94%;
+    --muted-foreground: 141 6% 45%;
+    --accent: 150 7% 94%;
     --accent-foreground: 120 3% 15%;
-    --destructive: 0 84% 60%;
+    --super: 271 91% 65%;
+    --super-foreground: 0 0% 98%;
+    --super-depth: 271 81% 56%;
+    --destructive: 0 100% 65%;
     --destructive-foreground: 0 0% 98%;
-    --border: 150 9% 87%;
-    --input: 140 9% 80%;
-    --ring: 142 36% 72%;
+    --destructive-depth: 0 82% 54%;
+    --disabled: 160 6% 90%;
+    --disabled-foreground: 120 3% 50%;
+    --border: 160 6% 90%;
+    --input: 144 6% 83%;
+    --ring: 141 24% 75%;
     --radius: 0.5rem;
   }
 
@@ -35,14 +43,19 @@
     --popover-foreground: 180 9% 98%;
     --primary: 142 71% 45%;
     --primary-foreground: 120 9% 2%;
-    --secondary: 142 8% 19%;
-    --secondary-foreground: 180 9% 98%;
+    --secondary: 198 93% 60%;
+    --secondary-foreground: 240 9% 2%;
     --muted: 142 7% 29%;
     --muted-foreground: 141 5% 48%;
     --accent: 142 71% 19%;
     --accent-foreground: 180 9% 98%;
-    --destructive: 0 84% 60%;
+    --super: 271 91% 65%;
+    --super-foreground: 0 0% 98%;
+    --super-depth: 271 81% 56%;
+    --destructive: 0 100% 65%;
     --destructive-foreground: 0 0% 98%;
+    --disabled: 144 8% 12%;
+    --disabled-foreground: 120 3% 30%;
     --border: 144 8% 12%;
     --input: 143 9% 18%;
     --ring: 142 71% 40%;
