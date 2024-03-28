@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { ThemeProvider } from '@/components/theme/provider'
+import { Analytics } from '@/components/Analytics'
 
 import { sharedMetadata } from '@/config/metadata'
 
@@ -27,6 +28,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
