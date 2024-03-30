@@ -21,9 +21,6 @@ const config = {
       fontFamily: {
         sans: 'var(--font-gabarito)',
         display: 'var(--font-capriola)',
-        cap: 'var(--font-capriola)',
-        unb: 'var(--font-unb)',
-        kod: 'var(--font-kod)',
       },
       colors: {
         border: 'hsl(var(--border))',

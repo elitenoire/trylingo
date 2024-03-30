@@ -11,9 +11,10 @@ export const metadata: Metadata = {
   ...sharedMetadata,
   title: {
     template: '%s | Lingo App',
-    default: 'Lingo - Best language learning app',
+    default: 'Lingo App - Unlock a new language.',
   },
-  description: 'The most popular language learning app. Learn languages with ease.',
+  description:
+    'Master a new language with the Lingo app - the fun and easy way to speak like a local!',
   keywords: ['Duolingo', 'Language', 'Learn Languages'],
 }
 

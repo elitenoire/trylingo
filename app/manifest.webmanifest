@@ -1,7 +1,7 @@
 {
   "name": "Lingo",
   "short_name": "Lingo",
-  "description": "A Duolingo clone app - learning languages made easy.",
+  "description": "A Duolingo clone app - unlock a new language with Lingo.",
   "start_url": "/",
   "icons": [
     {
