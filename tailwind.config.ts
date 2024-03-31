@@ -15,6 +15,7 @@ const config = {
       padding: '2rem',
       screens: {
         '2xl': '1400px',
+        app: '1600px',
       },
     },
     extend: {
@@ -69,10 +70,16 @@ const config = {
           foreground: 'hsl(var(--card-foreground))',
         },
       },
+      zIndex: {
+        '1': '1',
+        '2': '2',
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+        '4xl': '2rem',
+        inherit: 'inherit',
       },
       keyframes: {
         'accordion-down': {
