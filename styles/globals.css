@@ -70,3 +70,8 @@
     @apply bg-background text-foreground;
   }
 }
+@layer utilities {
+  .paused {
+    animation-play-state: paused;
+  }
+}
