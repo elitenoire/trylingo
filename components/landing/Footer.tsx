@@ -39,12 +39,20 @@ export function Footer() {
             Github
           </a>
         </div>
-        <div className="">
-          <p className="font-display text-[40vw] -tracking-widest opacity-80 dark:text-card-foreground sm:text-[min(35vw,300px)] md:absolute md:-bottom-1/4">
+        <div className="select-none">
+          <p className="font-display text-[40vw] -tracking-widest opacity-85 dark:text-card-foreground sm:text-[min(35vw,300px)] md:absolute md:-bottom-1/4">
             Lingo
           </p>
           <div className="relative -right-3 top-12 ml-auto w-1/3 drop-shadow-2xl saturate-[0.7] dark:hue-rotate-[50deg] max-md:hidden">
             <LogoSVG />
+          </div>
+        </div>
+        <div className="absolute right-1/4 top-1/3 md:right-1/3 md:top-[30%]">
+          <div className="group relative h-20 w-20 sm:h-28 sm:w-28 sm:text-lg lg:h-32 lg:w-32">
+            <span className="animate-footer-pulse bg-highlight absolute inset-0 rounded-full group-hover:paused" />
+            <span className="absolute inset-0 flex items-center justify-center font-bold uppercase underline decoration-wavy underline-offset-2 transition-transform duration-300 ease-out group-hover:scale-125">
+              start
+            </span>
           </div>
         </div>
       </div>
