@@ -2,10 +2,10 @@
 
 import { useTheme } from 'next-themes'
 import { useEffect, useState, type HTMLProps } from 'react'
-import { Within } from '@theme-toggles/react'
+import { Around } from '@theme-toggles/react'
 import { THEME_DARK, THEME_LIGHT } from '@/components/theme/constants'
 
-import '@theme-toggles/react/css/Within.css'
+import '@theme-toggles/react/css/Around.css'
 
 type ThemeToggleProps = {
   className?: HTMLProps<HTMLElement>['className']
@@ -25,7 +25,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
   if (!mounted) return null
 
   return (
-    <Within
+    <Around
       duration={500}
       placeholder={isDark ? '🌙' : '☀️'}
       toggled={isDark}
