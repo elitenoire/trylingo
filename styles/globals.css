@@ -1,4 +1,5 @@
-@tailwind base;
+@import 'tailwindcss/base';
+@import '@theme-toggles/react/css/Around.css';
 @tailwind components;
 @tailwind utilities;
 
