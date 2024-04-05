@@ -1,3 +1,9 @@
+import { Hero } from '@/components/landing/Hero'
+
 export default function Home() {
-  return <div>HOME</div>
+  return (
+    <>
+      <Hero />
+    </>
+  )
 }

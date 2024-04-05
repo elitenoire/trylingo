@@ -78,10 +78,11 @@ const config = {
         '2': '2',
       },
       borderRadius: {
+        '4xl': '2rem',
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
-        '4xl': '2rem',
+        xs: '2px',
         inherit: 'inherit',
       },
       keyframes: {

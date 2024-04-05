@@ -1,3 +1,4 @@
+import NextLink from 'next/link'
 import { ThemeToggle } from '@/components/theme/toggle'
 import { Button } from '@/components/ui/button'
 
@@ -6,8 +7,7 @@ import LogoSVG from '@/public/logo.svg'
 export function Header() {
   return (
     <header className="relative flex justify-center">
-      <div className="absolute top-0 h-16 w-14 rounded-b-3xl bg-secondary/30 dark:bg-card max-sm:left-1 sm:size-32 sm:rounded-b-4xl lg:h-36 lg:w-40" />
-      <div className="z-1 flex w-full items-center justify-between gap-2 px-2 pt-2 sm:px-8 sm:pt-4">
+      <div className="z-1 flex w-full items-center justify-between gap-2 px-2 sm:px-8">
         <div className="flex flex-1 items-center justify-start gap-1 max-sm:hidden">
           <Button variant="ghost" size="icon" asChild>
             <a
@@ -37,10 +37,14 @@ export function Header() {
             <ThemeToggle idPrefix="web" />
           </Button>
         </div>
-        <div className="flex flex-col items-center gap-1 px-[6px] text-2xl sm:text-3xl lg:text-4xl">
-          <LogoSVG className="w-[1.5em]" />
-          <p className="font-display -tracking-widest max-sm:hidden">Lingo</p>
-        </div>
+        <NextLink
+          href="/"
+          className="group flex h-16 w-14 flex-col items-center gap-1 rounded-b-3xl bg-secondary/30 px-[6px] pt-2 text-2xl transition-colors hover:bg-primary/25 dark:bg-card dark:hover:bg-border/70 sm:size-32 sm:rounded-b-4xl sm:pt-4 sm:text-3xl lg:size-36 lg:text-4xl"
+          title="Lingo app"
+        >
+          <LogoSVG className="w-[1.5em] group-hover:animate-bounce" />
+          <span className="font-display -tracking-widest max-sm:sr-only">Lingo</span>
+        </NextLink>
         <div className="flex flex-1 items-center justify-end">
           <Button variant="ghost">Login</Button>
         </div>
