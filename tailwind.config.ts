@@ -59,6 +59,7 @@ const config = {
         },
         highlight: {
           DEFAULT: 'hsl(var(--highlight))',
+          depth: 'hsl(var(--highlight-depth))',
         },
         disabled: {
           DEFAULT: 'hsl(var(--disabled))',

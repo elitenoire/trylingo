@@ -10,13 +10,13 @@ export function Hero() {
       <h1 className="flex w-full flex-col items-center justify-center gap-2 text-balance text-center font-display text-3xl font-bold capitalize leading-normal tracking-tighter sm:leading-snug md:gap-4 md:text-5xl">
         <span>
           Master any{' '}
-          <span className="rounded-full border border-highlight/25 bg-highlight/50 px-[0.35em] py-[0.125em]">
+          <span className="text-highlight-depth rounded-full border border-highlight/25 bg-highlight/50 px-[0.35em] py-[0.125em] dark:text-background">
             language.
           </span>
         </span>
         <span className="flex flex-wrap items-center justify-center">
           Learn{' '}
-          <span className="relative ml-[0.25em] flex h-[1.35em] w-[1.5em] items-center justify-center rounded-full bg-secondary/30">
+          <span className="relative ml-[0.25em] flex h-[1.35em] w-[1.5em] items-center justify-center rounded-full bg-secondary/30 dark:text-secondary">
             <Globe className="z-1 h-[1.25em] w-[1.25em]" strokeWidth={2.15} />
           </span>
           <span className="mr-[0.25em]">
