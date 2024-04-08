@@ -5,7 +5,7 @@ import LogoSVG from '@/public/logo.svg'
 export function Footer() {
   return (
     <footer className="px-1">
-      <div className="relative mx-auto flex h-80 flex-col justify-between overflow-hidden rounded-4xl bg-primary-depth/90 pt-0 text-primary-foreground dark:bg-card sm:h-96 sm:w-11/12 lg:h-[26rem]">
+      <div className="relative mx-auto flex h-80 flex-col justify-between overflow-hidden rounded-4xl bg-primary-depth/90 pt-0 text-primary-foreground dark:bg-card sm:h-96 lg:h-[26rem] lg:w-[95%]">
         <div className="flex border-b-2 border-border/70 dark:border-card dark:bg-primary max-md:flex-col-reverse">
           <div className="group flex w-full flex-1 gap-12 overflow-hidden whitespace-nowrap border-border/70 py-2 text-lg capitalize max-md:border-t-2 sm:text-2xl md:border-r-2 md:py-4">
             <p className="flex animate-footer-marquee items-center gap-12 group-hover:paused">
