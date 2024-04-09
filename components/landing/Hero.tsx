@@ -12,7 +12,7 @@ export function Hero() {
       <h1 className="flex w-full flex-col items-center justify-center gap-2 text-balance text-center font-display text-3xl font-bold capitalize leading-normal tracking-tighter sm:text-4xl sm:leading-snug md:gap-4 md:text-5xl">
         <span>
           Master any{' '}
-          <span className="text-highlight-depth rounded-full border border-highlight/25 bg-highlight/50 px-[0.35em] py-[0.125em] dark:text-background">
+          <span className="rounded-full border border-highlight/25 bg-highlight/50 px-[0.35em] py-[0.125em] text-highlight-depth dark:bg-highlight/85 dark:text-background">
             language.
           </span>
         </span>
