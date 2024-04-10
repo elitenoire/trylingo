@@ -1,4 +1,5 @@
 import { MetricsItem } from '@/components/landing/MetricsItem'
+import { AnimatedTitle } from '@/components/motion/AnimatedTitle'
 
 import FaceOneSVG from '@/public/img/face-1.svg'
 import FaceTwoSVG from '@/public/img/face-2.svg'
@@ -8,12 +9,14 @@ import FaceFourSVG from '@/public/img/face-4.svg'
 export function Metrics() {
   return (
     <section className="space-y-24 pb-8 pt-16 md:py-20">
-      <h2 className="px-4 text-center font-display text-3xl font-bold leading-normal tracking-tighter sm:text-4xl sm:leading-snug md:text-5xl">
-        <span className="text-primary">Lingo</span> by the{' '}
-        <span className="text-secondary underline decoration-wavy underline-offset-4 md:underline-offset-8">
-          numbers.
-        </span>
-      </h2>
+      <AnimatedTitle>
+        <h2 className="px-4 py-6 text-center font-display text-3xl font-bold leading-normal tracking-tighter sm:text-4xl sm:leading-snug md:text-5xl">
+          <span className="text-primary">Lingo</span> by the{' '}
+          <span className="text-secondary underline decoration-wavy underline-offset-4 md:underline-offset-8">
+            numbers.
+          </span>
+        </h2>
+      </AnimatedTitle>
       <ul className="relative grid grid-cols-12 sm:grid-cols-9 lg:px-[15%]">
         <li className="sticky top-4 col-start-2 col-end-12 row-start-1 row-end-11 pb-8 sm:col-start-3 sm:col-end-8 sm:row-end-6 sm:pb-16">
           <MetricsItem

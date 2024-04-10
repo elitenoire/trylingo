@@ -1,21 +1,46 @@
 import NextImage from 'next/image'
+import type { Variants } from 'framer-motion'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Button } from '@/components/ui/button'
+import { AnimatedTitle } from '@/components/motion/AnimatedTitle'
+import { AnimatedList, AnimatedListItem } from '@/components/motion/AnimatedList'
+
 import { languages } from '@/config/languages'
+
+const list = {
+  visible: {
+    opacity: 1,
+    transition: {
+      when: 'beforeChildren',
+      staggerChildren: 0.08,
+    },
+  },
+  hidden: { opacity: 0 },
+} satisfies Variants
+
+const item = {
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.4 } },
+  hidden: { opacity: 0, scale: 0.4 },
+} satisfies Variants
 
 export function Languages() {
   return (
-    <section className="space-y-8 px-4 pb-8 pt-4 sm:px-[10%] md:py-20">
-      <h2 className="text-center font-display text-3xl font-bold leading-normal tracking-tighter sm:text-4xl sm:leading-snug md:text-5xl">
-        I want to <span className="text-highlight-depth">learn ...</span>
-      </h2>
-      <ul className="flex flex-wrap justify-center gap-2 text-center lg:gap-4">
+    <section className="space-y-20 px-4 py-8 sm:px-[10%] md:py-20">
+      <AnimatedTitle>
+        <h2 className="py-6 text-center font-display text-3xl font-bold leading-normal tracking-tighter sm:text-4xl sm:leading-snug md:text-5xl">
+          I want to <span className="text-highlight-depth">learn ...</span>
+        </h2>
+      </AnimatedTitle>
+      <AnimatedList
+        className="flex flex-wrap justify-center gap-2 text-center lg:gap-4"
+        variants={list}
+      >
         {languages.map(({ flag, title }) => (
-          <li key={title} className="basis-28 md:basis-40">
+          <AnimatedListItem key={title} className="basis-28 md:basis-40" variants={item}>
             <Button
               variant="ghost"
               size="lg"
-              className="size-full flex-wrap bg-secondary/10 px-0 pb-4 lg:text-base"
+              className="size-full flex-wrap bg-secondary/10 px-0 pb-4 transition active:scale-95 lg:text-base"
             >
               <AspectRatio ratio={3 / 2} className="!top-1/2 mx-auto h-1/2 w-1/2 -translate-y-1/2">
                 <NextImage
@@ -27,9 +52,9 @@ export function Languages() {
               </AspectRatio>
               <span>{title}</span>
             </Button>
-          </li>
+          </AnimatedListItem>
         ))}
-      </ul>
+      </AnimatedList>
     </section>
   )
 }
