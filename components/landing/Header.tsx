@@ -1,13 +1,14 @@
 import NextLink from 'next/link'
-import { ThemeToggle } from '@/components/theme/toggle'
 import { Button } from '@/components/ui/button'
+import { ThemeToggle } from '@/components/theme/toggle'
+import { MotionDiv } from '@/components/motion'
 
 import LogoSVG from '@/public/logo.svg'
 
 export function Header() {
   return (
     <header className="relative flex justify-center">
-      <div className="z-1 flex w-full items-center justify-between gap-2 px-2 sm:px-8">
+      <div className="z-1 flex w-full items-center justify-between gap-2 overflow-hidden px-2 sm:px-8">
         <div className="flex flex-1 items-center justify-start gap-1 max-sm:hidden">
           <Button variant="ghost" size="icon" asChild>
             <a
@@ -37,14 +38,21 @@ export function Header() {
             <ThemeToggle idPrefix="web" />
           </Button>
         </div>
-        <NextLink
-          href="/"
-          className="group flex h-16 w-14 flex-col items-center gap-1 rounded-b-3xl bg-secondary/30 px-[6px] pt-2 text-2xl transition-colors hover:bg-primary/25 dark:bg-card dark:hover:bg-border/70 sm:size-32 sm:rounded-b-4xl sm:pt-4 sm:text-3xl lg:size-36 lg:text-4xl"
-          title="Lingo app"
+        <MotionDiv
+          initial={{ y: '-100%' }}
+          animate={{ y: '0%' }}
+          transition={{ type: 'spring', duration: 1 }}
         >
-          <LogoSVG className="w-[1.5em] group-hover:animate-bounce" />
-          <span className="font-display -tracking-widest max-sm:sr-only">Lingo</span>
-        </NextLink>
+          <NextLink
+            href="/"
+            // className="group flex h-16 w-14 flex-col items-center gap-1 rounded-b-3xl bg-secondary/30 px-[6px] pt-2 text-2xl hover:bg-primary/25 dark:bg-card dark:hover:bg-border/70 sm:size-32 sm:rounded-b-4xl sm:pt-4 sm:text-3xl lg:w-36 lg:text-4xl"
+            className="group flex h-16 w-14 flex-col items-center gap-1 rounded-b-3xl bg-secondary/30 px-[6px] pt-2 text-2xl transition-colors hover:bg-primary/25 dark:bg-card dark:hover:bg-border/70 sm:size-32 sm:rounded-b-4xl sm:pt-4 sm:text-3xl lg:w-36 lg:text-4xl"
+            title="Lingo app"
+          >
+            <LogoSVG className="w-[1.5em] group-hover:animate-bounce" />
+            <span className="font-display -tracking-widest max-sm:sr-only">Lingo</span>
+          </NextLink>
+        </MotionDiv>
         <div className="flex flex-1 items-center justify-end">
           <Button variant="ghost">Login</Button>
         </div>

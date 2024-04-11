@@ -1,4 +1,6 @@
 import { Asterisk, ArrowDown } from 'lucide-react'
+import { AnimatedTitle } from '@/components/motion/AnimatedTitle'
+import { MotionDiv } from '@/components/motion'
 
 import LogoSVG from '@/public/logo.svg'
 
@@ -41,13 +43,22 @@ export function Footer() {
             Github
           </a>
         </div>
-        <div className="select-none">
-          <p className="font-display text-[min(37vw,300px)] -tracking-widest opacity-85 dark:text-card-foreground md:absolute md:-bottom-1/4">
-            Lingo
-          </p>
-          <div className="relative -right-3 top-12 ml-auto w-1/3 drop-shadow-2xl saturate-[0.7] dark:hue-rotate-[50deg] max-md:hidden">
-            <LogoSVG />
-          </div>
+        <div className="flex-grow select-none overflow-hidden">
+          <AnimatedTitle className="md:absolute md:inset-x-0 md:-bottom-1/4">
+            <p className="font-display text-[min(37vw,300px)] -tracking-widest dark:text-card-foreground">
+              Lingo
+            </p>
+          </AnimatedTitle>
+          <MotionDiv
+            className="relative ml-auto flex h-full w-1/3 flex-col justify-end max-md:hidden"
+            initial={{ y: '100%', x: '2%' }}
+            whileInView={{ y: '15%' }}
+            transition={{ type: 'spring', bounce: 0.4, duration: 1.2 }}
+          >
+            <div className="drop-shadow-2xl saturate-[0.7] dark:hue-rotate-[50deg]">
+              <LogoSVG />
+            </div>
+          </MotionDiv>
         </div>
         <div className="absolute right-1/4 top-1/3 md:right-1/3 md:top-[30%]">
           <div className="group relative h-20 w-20 sm:h-28 sm:w-28 sm:text-lg lg:h-32 lg:w-32">
