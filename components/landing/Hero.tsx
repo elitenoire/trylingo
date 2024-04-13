@@ -29,7 +29,7 @@ const item = {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden px-4 pb-8 pt-24">
+    <section className="relative overflow-hidden px-4 pb-8 pt-32 lg:pt-24">
       <AnimatedTitle>
         <h1 className="flex w-full flex-col items-center justify-center gap-2 text-balance py-6 text-center font-display text-3xl font-bold capitalize leading-normal tracking-tighter sm:text-4xl sm:leading-snug md:gap-4 md:text-6xl">
           <span>
@@ -40,8 +40,11 @@ export function Hero() {
           </span>
           <span className="flex flex-wrap items-center justify-center">
             Learn{' '}
-            <span className="relative ml-[0.25em] flex h-[1.35em] w-[1.5em] items-center justify-center rounded-full bg-secondary/30 dark:text-secondary">
-              <Globe className="z-1 h-[1.25em] w-[1.25em]" strokeWidth={2.15} />
+            <span className="group relative ml-[0.25em] flex h-[1.35em] w-[1.5em] items-center justify-center rounded-full bg-secondary/30 dark:text-secondary">
+              <Globe
+                className="z-1 h-[1.25em] w-[1.25em] group-hover:animate-spin-slow"
+                strokeWidth={2.15}
+              />
             </span>
             <span className="mr-[0.25em]">
               <span className="sr-only">on</span>
@@ -65,14 +68,14 @@ export function Hero() {
           </Button>
         </AnimatedListItem>
       </AnimatedList>
-      <div className="absolute -left-[2%] top-[10%] -z-1 sm:left-[10%]">
+      <div className="absolute -left-[2%] top-[13%] -z-1 sm:left-[10%]">
         <AnimatedHeroDecor className="origin-bottom-right" delay={0.8}>
           <div className="size-20 -rotate-12 rounded-lg bg-gradient-to-br from-highlight/70  to-transparent p-2 text-background sm:size-24 lg:size-32">
             <LangSVG />
           </div>
         </AnimatedHeroDecor>
       </div>
-      <div className="absolute right-[10%] top-[10%] -z-1 max-md:hidden">
+      <div className="absolute right-[10%] top-[13%] -z-1 max-md:hidden">
         <AnimatedHeroDecor className="origin-bottom-left" move={60} delay={1}>
           <div className="size-24 rotate-12 rounded-lg bg-gradient-to-bl from-highlight/70  to-transparent p-2 text-background lg:size-32">
             <BulbSVG />

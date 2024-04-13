@@ -1,3 +1,8 @@
+'use client'
+
+import { useScroll } from 'framer-motion'
+import { useRef } from 'react'
+
 import { MetricsItem } from '@/components/landing/MetricsItem'
 import { AnimatedTitle } from '@/components/motion/AnimatedTitle'
 
@@ -7,6 +12,12 @@ import FaceThreeSVG from '@/public/img/face-3.svg'
 import FaceFourSVG from '@/public/img/face-4.svg'
 
 export function Metrics() {
+  const ref = useRef<HTMLUListElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', `end end`],
+  })
+
   return (
     <section className="space-y-24 pb-8 pt-16 md:py-20">
       <AnimatedTitle>
@@ -17,35 +28,56 @@ export function Metrics() {
           </span>
         </h2>
       </AnimatedTitle>
-      <ul className="relative grid grid-cols-12 sm:grid-cols-9 lg:px-[15%]">
-        <li className="sticky top-4 col-start-2 col-end-12 row-start-1 row-end-11 pb-8 sm:col-start-3 sm:col-end-8 sm:row-end-6 sm:pb-16">
+      <ul ref={ref} className="relative grid grid-cols-12 sm:grid-cols-9 lg:px-[15%]">
+        <li className="sticky top-[20%] col-start-2 col-end-12 pb-8 sm:col-start-3 sm:col-end-8 sm:pb-16 lg:top-[5%] lg:pb-40">
           <MetricsItem
             className="bg-primary-light"
-            title="1000+"
+            number={1000}
             description="hours of fun content"
+            offset={20}
+            progress={scrollYProgress}
           >
             <FaceTwoSVG />
           </MetricsItem>
         </li>
-        <li className="sticky top-8 col-start-2 col-end-12 row-start-12 row-end-[22] pb-8 sm:col-start-1 sm:col-end-5 sm:row-start-6 sm:row-end-10 sm:pb-16">
-          <MetricsItem className="bg-secondary" title="23+" description="language courses">
+        <li className="sticky top-[22.5%] col-start-2 col-end-12 pb-8 sm:col-start-1 sm:col-end-5 sm:pb-16 lg:pb-40">
+          <MetricsItem
+            className="bg-secondary"
+            number={23}
+            description="language courses"
+            offset={22.5}
+            progress={scrollYProgress}
+          >
             <FaceFourSVG />
           </MetricsItem>
         </li>
-        <li className="sticky top-8 col-start-2 col-end-12 row-start-[23] row-end-[33] pb-8 sm:col-start-6 sm:col-end-10 sm:row-start-6 sm:row-end-10 sm:pb-16">
-          <MetricsItem className="bg-highlight" title="~6M" description="app users">
+        <li className="sticky top-[25%] col-start-2 col-end-12 pb-8 sm:col-start-6 sm:col-end-10 sm:pb-16 lg:pb-40">
+          <MetricsItem
+            className="bg-highlight"
+            number={6}
+            prefix="~"
+            suffix="M"
+            description="app users"
+            offset={25}
+            progress={scrollYProgress}
+          >
             <FaceOneSVG />
           </MetricsItem>
         </li>
-        <li className="sticky top-4 col-start-1 col-end-13 row-start-[34] row-end-[44] pb-8 sm:col-start-2 sm:col-end-9 sm:row-start-10 sm:row-end-[17] sm:pb-16">
+        <li className="sticky top-[20%] col-start-1 col-end-13 pb-8 sm:col-start-2 sm:col-end-9 sm:pb-16 lg:top-[5%] lg:pb-40">
           <MetricsItem
             className="bg-gradient-to-b from-primary to-primary-depth to-80% shadow-lg"
-            title="93%"
+            number={93}
+            suffix="%"
             description="fluency in two months"
+            offset={20}
+            progress={scrollYProgress}
+            last
           >
             <FaceThreeSVG />
           </MetricsItem>
         </li>
+        <li className="col-start-1 col-end-13 h-[200vh] bg-orange-200/90 sm:col-end-10" />
       </ul>
     </section>
   )
