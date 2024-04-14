@@ -15,6 +15,7 @@
     --primary-foreground: 210 40% 98%;
     --primary-depth: 142 76% 36%;
     --primary-light: 142 71% 60%;
+    --primary-dark: 144 61% 18%;
     --secondary: 198 93% 60%;
     --secondary-foreground: 210 40% 98%;
     --secondary-depth: 199 89% 48%;
@@ -75,6 +76,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .heading-section {
+    @apply px-4 py-6 text-center font-display text-3xl font-bold leading-normal tracking-tighter sm:text-4xl sm:leading-snug md:text-5xl;
+  }
+}
+
 @layer utilities {
   .paused {
     animation-play-state: paused;

@@ -34,6 +34,7 @@ const config = {
           foreground: 'hsl(var(--primary-foreground))',
           depth: 'hsl(var(--primary-depth))',
           light: 'hsl(var(--primary-light))',
+          dark: 'hsl(var(--primary-dark))',
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
