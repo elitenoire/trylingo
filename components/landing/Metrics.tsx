@@ -21,10 +21,10 @@ export function Metrics() {
   return (
     <section className="space-y-24 pb-8 pt-16 md:py-20">
       <AnimatedTitle>
-        <h2 className="px-4 py-6 text-center font-display text-3xl font-bold leading-normal tracking-tighter sm:text-4xl sm:leading-snug md:text-5xl">
+        <h2 className="heading-section">
           <span className="text-primary">Lingo</span> by the{' '}
           <span className="text-secondary underline decoration-wavy underline-offset-4 md:underline-offset-8">
-            numbers.
+            numbers
           </span>
         </h2>
       </AnimatedTitle>
@@ -57,7 +57,7 @@ export function Metrics() {
             number={6}
             prefix="~"
             suffix="M"
-            description="app users"
+            description="users globally"
             offset={25}
             progress={scrollYProgress}
           >
@@ -77,7 +77,9 @@ export function Metrics() {
             <FaceThreeSVG />
           </MetricsItem>
         </li>
-        <li className="col-start-1 col-end-13 h-[200vh] bg-orange-200/90 sm:col-end-10" />
+        <li className="col-start-1 col-end-13 h-[200vh] bg-orange-200/90 sm:col-end-10">
+          <div className="h-full w-full bg-primary/20"></div>
+        </li>
       </ul>
     </section>
   )
