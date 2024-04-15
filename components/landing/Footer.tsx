@@ -1,6 +1,6 @@
 import { Asterisk, ArrowDown } from 'lucide-react'
-import { AnimatedTitle } from '@/components/motion/AnimatedTitle'
 import { MotionDiv } from '@/components/motion'
+import { AnimatedTitle } from '@/components/motion/AnimatedTitle'
 
 import LogoSVG from '@/public/logo.svg'
 
@@ -50,7 +50,7 @@ export function Footer() {
           </a>
         </div>
         <div className="flex-grow select-none overflow-hidden">
-          <AnimatedTitle className="md:absolute md:inset-x-0 md:-bottom-1/4">
+          <AnimatedTitle duration={1.2} className="md:absolute md:inset-x-0 md:-bottom-1/4">
             <p className="font-display text-[min(37vw,300px)] -tracking-widest dark:text-card-foreground">
               Lingo
             </p>
