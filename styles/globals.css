@@ -79,7 +79,7 @@
 
 @layer components {
   .heading-section {
-    @apply px-4 py-6 text-center font-display text-3xl font-bold leading-normal tracking-tighter sm:text-4xl sm:leading-snug md:text-5xl;
+    @apply px-8 py-6 text-center font-display text-3xl font-bold leading-normal tracking-tighter sm:text-4xl sm:leading-snug md:text-5xl;
   }
 }
 

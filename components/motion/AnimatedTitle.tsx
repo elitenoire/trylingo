@@ -3,24 +3,25 @@
 import type { PropsWithChildren } from 'react'
 import { motion } from 'framer-motion'
 
+import { cn } from '@/lib/utils'
+
 type AnimatedTitleProps = {
   className?: string
   duration?: number
 }
 
 export function AnimatedTitle({
-  duration = 4,
+  duration = 1,
   children,
   className,
 }: PropsWithChildren<AnimatedTitleProps>) {
   return (
     <motion.div
-      // reveals content vertically from center
-      initial={{ clipPath: 'polygon(50% 0, 50% 0, 50% 100%, 50% 100%)' }}
-      whileInView={{ clipPath: 'polygon(0% 0, 100% 0, 100% 100%, 0% 100%)' }}
+      initial={{ clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)' }}
+      whileInView={{ clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
       viewport={{ once: true }}
       transition={{ duration, ease: [0, 0.55, 0.45, 1] }}
-      className={className}
+      className={cn('relative left-1/2 inline-block -translate-x-1/2', className)}
     >
       {children}
     </motion.div>

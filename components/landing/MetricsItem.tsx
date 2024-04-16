@@ -1,13 +1,6 @@
 'use client'
 
-import {
-  motion,
-  useScroll,
-  useSpring,
-  useTransform,
-  useMotionValueEvent,
-  type MotionValue,
-} from 'framer-motion'
+import { motion, useScroll, useSpring, useTransform, type MotionValue } from 'framer-motion'
 import { type PropsWithChildren, useRef } from 'react'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { AnimatedNumber, type AnimatedNumberProps } from '@/components/motion/AnimatedNumber'
@@ -25,9 +18,9 @@ type MetricsItemProps = {
 export function MetricsItem({
   description,
   offset = 0,
+  suffix = '+',
   last,
   progress,
-  suffix = '+',
   children,
   className,
   ...rest
@@ -38,16 +31,17 @@ export function MetricsItem({
     offset: ['start end', `start ${offset}%`],
   })
   const scale = useSpring(useTransform(scrollYProgress, [0, 0.4, 0.8, 1], [0.5, 1, 1, 0.85]), {
-    stiffness: 30,
+    stiffness: 25,
   })
   const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1])
 
   const exitOpacity = useTransform(progress, [last ? 0.38 : 0.34, 0.38], [1, last ? 1 : 0])
   const exitScale = useTransform(progress, last ? [0.42, 0.55] : [0.34, 0.425], [1, 0.65])
 
+  const originTop = last && { className: 'lg:origin-top' }
   return (
-    <motion.div ref={ref} style={{ scale, opacity, originY: last ? '0%' : '50%' }}>
-      <motion.div style={{ scale: exitScale, opacity: exitOpacity, originY: 'inherit' }}>
+    <motion.div ref={ref} {...originTop} style={{ scale, opacity }}>
+      <motion.div {...originTop} style={{ scale: exitScale, opacity: exitOpacity }}>
         <AspectRatio
           ratio={1}
           className={cn(

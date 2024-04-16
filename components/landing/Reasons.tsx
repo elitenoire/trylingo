@@ -4,10 +4,13 @@ import { ReasonsItem } from '@/components/landing/ReasonsItem'
 
 export function Reasons() {
   return (
-    <section className="space-y-20 px-1 pb-1">
+    <section className="space-y-28 px-1 pb-1">
       <AnimatedTitle>
         <h2 className="heading-section">
-          The <span className="text-highlight-depth">future</span> of learning
+          The <span className="text-highlight-depth">future</span> of{' '}
+          <span className="relative inline-block before:absolute before:-bottom-0 before:-right-[0.6em] before:-z-1 before:size-[1.375em] before:rounded-full before:bg-primary-light/60">
+            learning
+          </span>
         </h2>
       </AnimatedTitle>
       <ul className="space-y-1 text-2xl sm:text-3xl md:text-4xl">

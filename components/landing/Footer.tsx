@@ -50,8 +50,8 @@ export function Footer() {
           </a>
         </div>
         <div className="flex-grow select-none overflow-hidden">
-          <AnimatedTitle duration={1.2} className="md:absolute md:inset-x-0 md:-bottom-1/4">
-            <p className="font-display text-[min(37vw,300px)] -tracking-widest dark:text-card-foreground">
+          <AnimatedTitle className="md:absolute md:-bottom-1/4 md:left-0 md:translate-x-0">
+            <p className="pr-6 font-display text-[min(37vw,300px)] -tracking-widest dark:text-card-foreground">
               Lingo
             </p>
           </AnimatedTitle>
