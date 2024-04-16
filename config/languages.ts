@@ -35,13 +35,13 @@ export const languages = [
     word: 'Ciao',
   },
   {
-    title: 'German',
-    flag: 'de',
-    word: 'Hallo',
-  },
-  {
     title: 'Russian',
     flag: 'ru',
     word: 'Привет',
+  },
+  {
+    title: 'German',
+    flag: 'de',
+    word: 'Hallo',
   },
 ]
