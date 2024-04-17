@@ -1,4 +1,5 @@
 import NextLink from 'next/link'
+import { ClerkLoaded, UserButton, SignedIn, SignedOut, SignInButton } from '@clerk/nextjs'
 import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/theme/toggle'
 import { MotionDiv } from '@/components/motion'
@@ -40,7 +41,16 @@ export function Header() {
           </NextLink>
         </MotionDiv>
         <div className="flex flex-1 items-center justify-end">
-          <Button variant="ghost">Login</Button>
+          <ClerkLoaded>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            <SignedOut>
+              <SignInButton mode="modal">
+                <Button variant="ghost">Login</Button>
+              </SignInButton>
+            </SignedOut>
+          </ClerkLoaded>
         </div>
       </div>
       <div className="fixed bottom-4 right-4 z-50 sm:hidden">

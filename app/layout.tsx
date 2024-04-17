@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { ClerkProvider } from '@clerk/nextjs'
 import { ThemeProvider } from '@/components/theme/provider'
 import { Analytics } from '@/components/Analytics'
 
@@ -24,13 +25,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${fonts} flex min-h-screen flex-col font-sans`}>
-        <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
-        <Analytics />
-      </body>
-    </html>
+    <ClerkProvider afterSignInUrl="/learn" afterSignUpUrl="/learn">
+      <html lang="en" suppressHydrationWarning>
+        <body className={`${fonts} flex min-h-screen flex-col font-sans`}>
+          <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
+            {children}
+          </ThemeProvider>
+          <Analytics />
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
