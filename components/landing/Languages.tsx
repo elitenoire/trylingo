@@ -31,30 +31,35 @@ export function Languages() {
           I want to <span className="text-highlight-depth">learn ...</span>
         </h2>
       </AnimatedTitle>
-      <AnimatedList
-        className="flex flex-wrap justify-center gap-2 text-center lg:gap-4"
-        variants={list}
-      >
-        {languages.map(({ flag, title }) => (
-          <AnimatedListItem key={title} className="basis-28 md:basis-40" variants={item}>
-            <Button
-              variant="ghost"
-              size="lg"
-              className="size-full flex-wrap bg-secondary/10 px-0 pb-4 transition active:scale-95 lg:text-base"
-            >
-              <AspectRatio ratio={3 / 2} className="!top-1/2 mx-auto h-1/2 w-1/2 -translate-y-1/2">
-                <NextImage
-                  src={`/img/flags/${flag}.svg`}
-                  alt={`${title} flag`}
-                  fill
-                  className="rounded-md object-cover"
-                />
-              </AspectRatio>
-              <span>{title}</span>
-            </Button>
-          </AnimatedListItem>
-        ))}
-      </AnimatedList>
+      <div className="mx-auto max-w-screen-lg">
+        <AnimatedList
+          className="flex flex-wrap justify-center gap-2 text-center lg:gap-4"
+          variants={list}
+        >
+          {languages.map(({ flag, title }) => (
+            <AnimatedListItem key={title} className="basis-28 md:basis-40" variants={item}>
+              <Button
+                variant="ghost"
+                size="lg"
+                className="size-full flex-wrap bg-secondary/10 px-0 pb-4 transition active:scale-95 lg:text-base"
+              >
+                <AspectRatio
+                  ratio={3 / 2}
+                  className="!top-1/2 mx-auto h-1/2 w-1/2 -translate-y-1/2"
+                >
+                  <NextImage
+                    src={`/img/flags/${flag}.svg`}
+                    alt={`${title} flag`}
+                    fill
+                    className="rounded-md object-cover"
+                  />
+                </AspectRatio>
+                <span>{title}</span>
+              </Button>
+            </AnimatedListItem>
+          ))}
+        </AnimatedList>
+      </div>
     </section>
   )
 }

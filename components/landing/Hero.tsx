@@ -1,6 +1,9 @@
 import type { Variants } from 'framer-motion'
+import NextLink from 'next/link'
+import { ClerkLoaded, SignedIn, SignedOut, SignInButton, SignUpButton } from '@clerk/nextjs'
 import { Globe } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { MotionDiv } from '@/components/motion'
 import { AnimatedTitle } from '@/components/motion/AnimatedTitle'
 import { AnimatedList, AnimatedListItem } from '@/components/motion/AnimatedList'
 import { AnimatedHeroDecor } from '@/components/motion/AnimatedHeroDecor'
@@ -56,18 +59,42 @@ export function Hero() {
           </span>
         </h1>
       </AnimatedTitle>
-      <AnimatedList variants={list} className="mx-auto my-12 flex max-w-80 flex-col gap-3">
-        <AnimatedListItem variants={item}>
-          <Button variant="primary" size="lg" className="w-full">
-            <span className="truncate">Get started</span>
-          </Button>
-        </AnimatedListItem>
-        <AnimatedListItem variants={item}>
-          <Button size="lg" className="w-full text-secondary">
-            <span className="truncate">I already have an account</span>
-          </Button>
-        </AnimatedListItem>
-      </AnimatedList>
+      <div className="mx-auto my-12 min-h-40 max-w-80">
+        <ClerkLoaded>
+          <SignedOut>
+            <AnimatedList variants={list} className="flex flex-col gap-3">
+              <AnimatedListItem variants={item}>
+                <SignUpButton mode="modal">
+                  <Button variant="primary" size="lg" className="w-full">
+                    <span className="truncate">Get started</span>
+                  </Button>
+                </SignUpButton>
+              </AnimatedListItem>
+              <AnimatedListItem variants={item}>
+                <SignInButton mode="modal">
+                  <Button size="lg" className="w-full text-secondary">
+                    <span className="truncate">I already have an account</span>
+                  </Button>
+                </SignInButton>
+              </AnimatedListItem>
+            </AnimatedList>
+          </SignedOut>
+          <SignedIn>
+            <MotionDiv
+              initial="hidden"
+              whileInView="visible"
+              variants={item}
+              transition={{ delay: 0.5 }}
+            >
+              <Button variant="primary" size="lg" className="w-full" asChild>
+                <NextLink href="/learn" className="truncate">
+                  Continue Learning
+                </NextLink>
+              </Button>
+            </MotionDiv>
+          </SignedIn>
+        </ClerkLoaded>
+      </div>
       <div className="absolute -left-[2%] top-[13%] -z-1 sm:left-[10%]">
         <AnimatedHeroDecor className="origin-bottom-right" delay={0.8}>
           <div className="size-20 -rotate-12 rounded-lg bg-gradient-to-br from-highlight/70  to-transparent p-2 text-background sm:size-24 lg:size-32">

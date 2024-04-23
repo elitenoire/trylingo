@@ -1,8 +1,21 @@
+import NextLink from 'next/link'
+import { ClerkLoaded, SignedIn, SignedOut, SignUpButton } from '@clerk/nextjs'
 import { Asterisk, ArrowDown } from 'lucide-react'
 import { MotionDiv } from '@/components/motion'
 import { AnimatedTitle } from '@/components/motion/AnimatedTitle'
 
 import LogoSVG from '@/public/logo.svg'
+
+function StartCTA() {
+  return (
+    <span className="group relative block size-20 rounded-inherit sm:size-28 sm:text-lg lg:size-32">
+      <span className="absolute inset-0 animate-footer-pulse rounded-inherit bg-highlight group-hover:paused" />
+      <span className="absolute inset-0 flex items-center justify-center font-bold uppercase underline decoration-wavy underline-offset-2 transition-transform duration-300 ease-out group-hover:scale-125">
+        start
+      </span>
+    </span>
+  )
+}
 
 export function Footer() {
   return (
@@ -57,23 +70,32 @@ export function Footer() {
           </AnimatedTitle>
           <MotionDiv
             className="relative ml-auto flex h-full w-1/3 flex-col justify-end max-md:hidden"
-            initial={{ y: '100%', x: '2%' }}
+            initial={{ y: '95%', x: '2%' }}
             whileInView={{ y: '15%' }}
-            transition={{ type: 'spring', bounce: 0.4, duration: 1.2 }}
+            transition={{ type: 'spring', duration: 1.2 }}
+            viewport={{ margin: '10% 0% 0% 0%' }}
           >
             <div className="drop-shadow-2xl saturate-[0.7] dark:hue-rotate-[50deg]">
               <LogoSVG />
             </div>
           </MotionDiv>
         </div>
-        <div className="absolute right-1/4 top-1/3 md:right-1/3 md:top-[30%]">
-          <div className="group relative h-20 w-20 sm:h-28 sm:w-28 sm:text-lg lg:h-32 lg:w-32">
-            <span className="absolute inset-0 animate-footer-pulse rounded-full bg-highlight group-hover:paused" />
-            <span className="absolute inset-0 flex items-center justify-center font-bold uppercase underline decoration-wavy underline-offset-2 transition-transform duration-300 ease-out group-hover:scale-125">
-              start
-            </span>
+        <ClerkLoaded>
+          <div className="absolute right-1/4 top-1/3 md:right-1/3 md:top-[30%]">
+            <SignedOut>
+              <SignUpButton mode="modal">
+                <button className="rounded-full">
+                  <StartCTA />
+                </button>
+              </SignUpButton>
+            </SignedOut>
+            <SignedIn>
+              <NextLink href="/learn" className="rounded-full">
+                <StartCTA />
+              </NextLink>
+            </SignedIn>
           </div>
-        </div>
+        </ClerkLoaded>
       </MotionDiv>
       <p className="text-center max-sm:text-sm">
         © 2024 — Lingo by{' '}
