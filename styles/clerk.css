@@ -1,0 +1,194 @@
+/* https://github.com/stormynight9/clerk-shadcn-theme */
+
+.cl-cardBox,
+.cl-socialButtonsBlockButton,
+.cl-alert,
+.cl-identityPreview,
+.cl-phoneInputBox,
+.cl-formFieldInput,
+.cl-userButtonPopoverCard,
+.cl-selectSearchInput__countryCode,
+.cl-selectOptionsContainer__countryCode {
+  @apply !border-2 !border-input bg-background;
+}
+
+.cl-headerTitle,
+.cl-socialButtonsBlockButtonText,
+.cl-loading,
+.cl-formFieldLabel,
+.cl-formHeaderTitle,
+.cl-selectButton__countryCode,
+.cl-selectButton__countryCode p,
+.cl-selectOption p,
+.cl-selectOption div,
+.cl-navbar h1,
+.cl-breadcrumbsItem.cl-breadcrumbsItem__currentPage,
+.cl-userPreviewTextContainer,
+.cl-profileSectionContent div > p,
+.cl-form p,
+.cl-accordionTriggerButton {
+  @apply dark:text-foreground;
+}
+
+.cl-headerSubtitle,
+.cl-dividerText,
+.cl-footerActionText,
+.cl-alertText,
+.cl-formFieldInfoText,
+.cl-formFieldSuccessText,
+.cl-identityPreviewText,
+.cl-userButtonPopoverActionButton,
+.cl-userButtonPopoverActionButton svg,
+.cl-userButtonPopoverActionButtonText,
+.cl-userButtonPopoverFooter p,
+.cl-userButtonPopoverFooter a,
+.cl-navbar p,
+.cl-profileSectionTitle,
+.cl-formHeaderSubtitle,
+.cl-breadcrumbsItem,
+.cl-breadcrumbsItemDivider,
+.cl-fileDropAreaHint,
+.cl-fileDropAreaFooterHint,
+.cl-menuButton[data-color='neutral'],
+.cl-form p[data-localization-key='userProfile.emailAddressPage.emailCode.formHint'],
+p[data-localization-key='userProfile.profilePage.successMessage'] {
+  @apply text-muted-foreground;
+}
+
+.cl-formButtonPrimary,
+.cl-formFieldInput,
+.cl-selectSearchInput__countryCode {
+  @apply h-11 rounded-lg ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+}
+
+.cl-formFieldInput,
+.cl-selectSearchInput__countryCode {
+  @apply flex w-full text-foreground file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground disabled:cursor-not-allowed;
+}
+
+.cl-formButtonPrimary {
+  @apply inline-flex items-center justify-center whitespace-nowrap bg-primary px-3 text-base font-medium text-primary-foreground transition-colors hover:bg-primary/90;
+}
+
+.cl-formFieldInput {
+  @apply px-3 py-2;
+}
+
+.cl-dividerLine {
+  @apply bg-border;
+}
+
+.cl-profileSection {
+  @apply border-t-border;
+}
+
+.cl-footerActionLink {
+  @apply text-accent-foreground underline hover:text-accent-foreground/90;
+}
+
+.cl-otpCodeFieldInput {
+  @apply border border-b-input text-foreground;
+}
+
+.cl-formResendCodeLink {
+  @apply text-primary disabled:opacity-90;
+}
+
+.cl-internal-icon,
+.cl-userPreviewSecondaryIdentifier__userButton {
+  @apply text-foreground;
+}
+
+.cl-fileDropAreaBox {
+  @apply dark:bg-gray-900;
+}
+
+.cl-fileDropAreaIconBox {
+  @apply dark:bg-gray-800;
+}
+
+.cl-fileDropAreaIcon {
+  @apply dark:text-gray-400;
+}
+
+.cl-fileDropAreaButtonPrimary {
+  @apply h-10 px-4 py-2 text-foreground transition-colors hover:bg-secondary hover:text-accent-foreground;
+}
+
+.cl-userButtonPopoverActionButton,
+.cl-accordionTriggerButton {
+  @apply hover:text-accent-foreground;
+}
+
+.cl-modalCloseButton,
+.cl-navbarButton,
+.cl-navbarMobileMenuButton,
+.cl-menuItem {
+  @apply !text-foreground hover:bg-muted;
+}
+
+.cl-navbarButton.cl-active {
+  @apply bg-muted;
+}
+
+.cl-profileSectionPrimaryButton,
+.cl-menuButton,
+.cl-formButtonReset {
+  @apply hover:bg-primary/5;
+}
+
+.cl-profileSectionPrimaryButton__danger {
+  @apply bg-destructive !text-destructive-foreground hover:bg-destructive/60;
+}
+
+.cl-cardBox,
+.cl-userButtonPopoverCard {
+  @apply rounded-lg !border-transparent shadow-md dark:!border-border;
+}
+
+.cl-card,
+.cl-footer,
+.cl-userButtonPopoverMain,
+.cl-userButtonPopoverFooter,
+.cl-navbar,
+.cl-navbarMobileMenuRow {
+  @apply bg-background bg-none;
+}
+
+.cl-userButtonPopoverFooter a {
+  @apply hover:text-muted-foreground;
+}
+
+.cl-badge {
+  @apply rounded-full px-2.5 py-0.5 text-sm;
+}
+
+.cl-avatarImageActionsUpload,
+.cl-badge[data-color='primary'] {
+  @apply text-foreground/80 dark:border dark:border-input dark:shadow-none;
+}
+
+.cl-badge[data-localization-key='badge__unverified'] {
+  @apply border bg-transparent text-destructive dark:text-red-500;
+}
+
+.cl-modalBackdrop {
+  @apply backdrop-blur-sm dark:bg-background/25;
+}
+
+.cl-avatarBox {
+  @apply size-11 bg-disabled;
+}
+
+.cl-scrollBox,
+.cl-menuList {
+  @apply border border-border bg-card;
+}
+
+.cl-actionCard {
+  @apply border border-border bg-background shadow-none;
+}
+
+.cl-providerIcon__github {
+  @apply dark:invert;
+}

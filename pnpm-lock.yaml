@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@clerk/nextjs':
-    specifier: 5.0.0-beta.43
-    version: 5.0.0-beta.43(eslint@8.57.0)(next@14.1.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3)
+    specifier: ^5.0.2
+    version: 5.0.2(eslint@8.57.0)(next@14.1.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3)
   '@radix-ui/react-aspect-ratio':
     specifier: ^1.0.3
     version: 1.0.3(@types/react-dom@18.2.22)(@types/react@18.2.69)(react-dom@18.2.0)(react@18.2.0)
@@ -1372,11 +1372,11 @@ packages:
       '@babel/helper-validator-identifier': 7.22.20
       to-fast-properties: 2.0.0
 
-  /@clerk/backend@1.0.0-beta.35(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-zGdZRMCBXQpH5TzJDGcH3mu3l2K3Kcm/o10dKeG6v48eM0INyzYSBRqucB2lBF2qN/JvXwite4GyqOSc4JCqrA==}
+  /@clerk/backend@1.0.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-cfeMmgyvdAVraEun+3ZOgWsv+0cKoloF3lNThjvbshUPh4UIx0WePY28t0qFuuQIXtuyEq9iq8ia8xLwPcbHeA==}
     engines: {node: '>=18.17.0'}
     dependencies:
-      '@clerk/shared': 2.0.0-beta.21(react-dom@18.2.0)(react@18.2.0)
+      '@clerk/shared': 2.0.0(react-dom@18.2.0)(react@18.2.0)
       cookie: 0.5.0
       snakecase-keys: 5.4.4
       tslib: 2.4.1
@@ -1385,15 +1385,15 @@ packages:
       - react-dom
     dev: false
 
-  /@clerk/clerk-react@5.0.0-beta.38(eslint@8.57.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3):
-    resolution: {integrity: sha512-ME3ooPbRFwgXZyT+H9WLfqiVR+doxKziG6ChlV2n90BmZQQVkYgrOTNSny67UXGDAVk49ZVdBImLvcJoBBLU5w==}
+  /@clerk/clerk-react@5.0.1(eslint@8.57.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3):
+    resolution: {integrity: sha512-JMwOtFFYGfEOI7Ux3Hg5QbuSYSUN1srf3rL6ORK6hgNuTbS1Cd24v6XZz3c7xfMo6yL70o870gXi20FecdeYYw==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       react: '>=18'
       react-dom: '>=18'
     dependencies:
-      '@clerk/shared': 2.0.0-beta.21(react-dom@18.2.0)(react@18.2.0)
-      '@clerk/types': 4.0.0-beta.27
+      '@clerk/shared': 2.0.0(react-dom@18.2.0)(react@18.2.0)
+      '@clerk/types': 4.1.0
       eslint-config-custom: 0.0.0(eslint@8.57.0)(typescript@5.4.3)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -1405,17 +1405,17 @@ packages:
       - typescript
     dev: false
 
-  /@clerk/nextjs@5.0.0-beta.43(eslint@8.57.0)(next@14.1.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3):
-    resolution: {integrity: sha512-5m+5CPrFK7+uSiR1RUUidgEFfl21N5LDo+v4UdgTFST0hN/rn2BOxKYquQWGdG4vJVuwMb0+bHIf+mLDlnx9aw==}
+  /@clerk/nextjs@5.0.2(eslint@8.57.0)(next@14.1.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3):
+    resolution: {integrity: sha512-7FNV7tEzy1xMm+hG/lLT0Dh69xkd009PAZfqMQ9AHbjvrKWOTfUZOVkQTgwO7vUcj2V8DlmEmhFLIxfWie6ezA==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       next: ^13.5.4 || ^14.0.3
       react: '>=18'
       react-dom: '>=18'
     dependencies:
-      '@clerk/backend': 1.0.0-beta.35(react-dom@18.2.0)(react@18.2.0)
-      '@clerk/clerk-react': 5.0.0-beta.38(eslint@8.57.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3)
-      '@clerk/shared': 2.0.0-beta.21(react-dom@18.2.0)(react@18.2.0)
+      '@clerk/backend': 1.0.1(react-dom@18.2.0)(react@18.2.0)
+      '@clerk/clerk-react': 5.0.1(eslint@8.57.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3)
+      '@clerk/shared': 2.0.0(react-dom@18.2.0)(react@18.2.0)
       crypto-js: 4.2.0
       next: 14.1.4(@babel/core@7.24.3)(react-dom@18.2.0)(react@18.2.0)
       path-to-regexp: 6.2.1
@@ -1429,8 +1429,8 @@ packages:
       - typescript
     dev: false
 
-  /@clerk/shared@2.0.0-beta.21(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-UnBgglq2g+4hdJlUc/NtbiMHaCHfpq1ZKaeug/Bc7QhTjRgopsjBxFjTQCm0xODlNIfWm3Sksql6u1PJnKQwMg==}
+  /@clerk/shared@2.0.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-HRbBGhAetOE6gSFd2jlLJTo+BFjuEr9lD1xigtBXdJUnmVngunciikQU2dZ4i/20X7B4VTrofhNpYi9MsCm7dw==}
     engines: {node: '>=18.17.0'}
     requiresBuild: true
     peerDependencies:
@@ -1450,8 +1450,8 @@ packages:
       swr: 2.2.0(react@18.2.0)
     dev: false
 
-  /@clerk/types@4.0.0-beta.27:
-    resolution: {integrity: sha512-p6X1lU4k/G074UhIX+aFmVEwipXRHGxjMAtbdo/OErkOSZoq9gF+cu2h3RWEofhkmD6fx35FniXIP1BllJRJOQ==}
+  /@clerk/types@4.1.0:
+    resolution: {integrity: sha512-e9vsD7EdQE0q9mPwPMq1kPtPC9BYGR8BucEoEu+pEyXXD5cdSkzM+WvhUonnTHNzYE/W/X5d1zFDNvCV5YfS5Q==}
     engines: {node: '>=18.17.0'}
     dependencies:
       csstype: 3.1.1

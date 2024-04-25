@@ -1,6 +1,7 @@
 @import 'tailwindcss/base';
 @import '@theme-toggles/react/css/Around.css';
-@tailwind components;
+@import 'tailwindcss/components';
+@import './clerk.css';
 @tailwind utilities;
 
 @layer base {
@@ -35,7 +36,7 @@
     --disabled-foreground: 120 3% 50%;
     --border: 160 6% 90%;
     --input: 144 6% 83%;
-    --ring: 141 24% 75%;
+    --ring: 142 71% 45%;
     --radius: 0.5rem;
   }
 
@@ -80,6 +81,9 @@
 @layer components {
   .heading-section {
     @apply px-8 py-6 text-center font-display text-3xl font-bold leading-normal tracking-tighter sm:text-4xl sm:leading-snug md:text-5xl;
+  }
+  .focus-visible {
+    @apply ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
   }
 }
 

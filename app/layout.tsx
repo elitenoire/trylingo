@@ -25,7 +25,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <ClerkProvider afterSignInUrl="/learn" afterSignUpUrl="/learn">
+    <ClerkProvider
+      appearance={{
+        variables: {
+          fontSize: '0.875rem',
+          borderRadius: '0.5rem',
+          colorPrimary: 'hsl(142, 71%, 45%)',
+        },
+      }}
+    >
       <html lang="en" suppressHydrationWarning>
         <body className={`${fonts} flex min-h-screen flex-col font-sans`}>
           <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
