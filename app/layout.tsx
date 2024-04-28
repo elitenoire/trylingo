@@ -35,7 +35,7 @@ export default function RootLayout({
       }}
     >
       <html lang="en" suppressHydrationWarning>
-        <body className={`${fonts} flex min-h-screen flex-col font-sans`}>
+        <body className={`${fonts} flex flex-col font-sans`}>
           <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
             {children}
           </ThemeProvider>
