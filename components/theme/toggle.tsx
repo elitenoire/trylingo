@@ -1,39 +1,32 @@
 'use client'
 
-import { useTheme } from 'next-themes'
-import { useEffect, useState, type HTMLProps } from 'react'
-import { Around, type ToggleProps } from '@theme-toggles/react'
-import { THEME_DARK, THEME_LIGHT } from '@/components/theme/constants'
+import { Sun, Moon } from 'lucide-react'
+import { Button, type ButtonProps } from '@/components/ui/button'
+import { useThemeToggle } from '@/components/theme/useToggle'
 
-type ThemeToggleProps = {
-  className?: HTMLProps<HTMLElement>['className']
-}
+import { cn } from '@/lib/utils'
 
-export function ThemeToggle(props: ToggleProps) {
-  const [mounted, setMounted] = useState(false)
-  const { resolvedTheme, setTheme } = useTheme()
-
-  const isDark = resolvedTheme === THEME_DARK
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+export function ThemeToggle({ className, ...props }: ButtonProps) {
+  const { isDark, toggle, hydrated } = useThemeToggle()
 
   // TODO: fix layout shift from hydration
-  if (!mounted) return null
+  if (!hydrated) return null
 
   return (
-    <Around
-      // duration={500}
-      placeholder={isDark ? '🌙' : '☀️'}
-      toggled={isDark}
-      toggle={() => setTheme(isDark ? THEME_LIGHT : THEME_DARK)}
-      // className={className}
-      forceMotion
-      // fixes typescript error
-      onPointerEnterCapture={undefined}
-      onPointerLeaveCapture={undefined}
+    <Button
+      variant="ghost"
+      size="icon"
+      className={cn('text-2xl', className)}
+      title="Toggle theme"
+      aria-label="Toggle theme"
       {...props}
-    />
+      onClick={toggle}
+    >
+      {isDark ? (
+        <Moon className="size-[1em] fill-current" />
+      ) : (
+        <Sun className="size-[1em] fill-current" />
+      )}
+    </Button>
   )
 }
