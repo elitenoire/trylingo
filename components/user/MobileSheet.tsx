@@ -9,7 +9,7 @@ export function MobileSheet({ children }: PropsWithChildren<MobileSheetProps>) {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="text-2xl">
+        <Button variant="ghost" size="icon" className="size-10" aria-label="Open menu">
           <Menu />
         </Button>
       </SheetTrigger>

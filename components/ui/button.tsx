@@ -20,7 +20,8 @@ const buttonVariants = cva(
         super:
           'bg-super text-super-foreground border-b-4 border-super-depth hover:bg-super/90 active:border-b-0',
 
-        ghost: 'bg-transparent hover:bg-black/5 dark:bg-white/[0.015] dark:hover:bg-white/5',
+        ghost:
+          'bg-transparent border-2 border-transparent hover:bg-black/5 dark:bg-white/[0.015] dark:hover:bg-white/5',
         active:
           'bg-secondary/15 text-secondary border-2 border-b-4 border-secondary/80 hover:bg-secondary/20',
         correct:
