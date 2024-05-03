@@ -1,12 +1,13 @@
 import NextLink from 'next/link'
 import { SideMenuItem } from '@/components/user/SideMenuItem'
 import { SideMenuThemeButton } from '@/components/user/SideMenuThemeButton'
+import { SideMenuUserButton } from '@/components/user/SideMenuUserButton'
 
 import LogoSVG from '@/public/logo.svg'
 
 export function SideMenu() {
   return (
-    <div className="flex h-full flex-col justify-between pt-8">
+    <div className="flex h-full flex-col justify-between pt-6">
       <nav className="flex flex-col gap-6 px-4 sm:max-lg:px-2">
         <NextLink
           href="/learn"
@@ -28,8 +29,9 @@ export function SideMenu() {
           <SideMenuItem href="/shop" icon="shop" label="Shop" />
         </ul>
       </nav>
-      <div className="space-y-2 border-t-2 px-4 py-2 sm:max-lg:px-2">
+      <div className="space-y-2 border-t-2 px-4 pb-2 pt-2 sm:max-lg:px-2">
         <SideMenuThemeButton />
+        <SideMenuUserButton />
       </div>
     </div>
   )
