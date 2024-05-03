@@ -1,5 +1,4 @@
 @import 'tailwindcss/base';
-@import '@theme-toggles/react/css/Around.css';
 @import 'tailwindcss/components';
 @import './clerk.css';
 @tailwind utilities;
@@ -34,6 +33,7 @@
     --destructive-depth: 0 82% 54%;
     --disabled: 160 6% 90%;
     --disabled-foreground: 120 3% 50%;
+    --loading: 160 6% 90%;
     --border: 160 6% 90%;
     --input: 144 6% 83%;
     --ring: 142 71% 45%;
@@ -63,6 +63,7 @@
     --destructive-foreground: 0 0% 98%;
     --disabled: 144 8% 12%;
     --disabled-foreground: 120 3% 30%;
+    --loading: 144 8% 12%;
     --border: 144 8% 12%;
     --input: 143 9% 18%;
     --ring: 142 71% 40%;

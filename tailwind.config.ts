@@ -67,6 +67,9 @@ const config = {
           DEFAULT: 'hsl(var(--disabled))',
           foreground: 'hsl(var(--disabled-foreground))',
         },
+        loading: {
+          DEFAULT: 'hsl(var(--loading))',
+        },
         popover: {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))',

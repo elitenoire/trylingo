@@ -177,7 +177,7 @@ p[data-localization-key='userProfile.profilePage.successMessage'] {
 }
 
 .cl-avatarBox {
-  @apply size-11 bg-disabled;
+  @apply bg-loading size-11;
 }
 
 .cl-scrollBox,
