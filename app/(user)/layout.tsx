@@ -9,7 +9,7 @@ type UserLayoutProps = {
 export default function UserLayout({ main }: UserLayoutProps) {
   return (
     <div className="container flex flex-grow flex-col px-0 sm:flex-row">
-      <header className="sm:w-20 lg:w-64">
+      <header className="top-0 z-1 max-sm:sticky sm:w-20 lg:w-64">
         <div className="flex items-center justify-between border-b-2 border-primary-depth bg-primary p-2 text-primary-foreground sm:hidden">
           <div className="" />
           <MobileSheet>
@@ -28,7 +28,6 @@ export default function UserLayout({ main }: UserLayoutProps) {
           </div>
         </div>
       </main>
-      <footer className="fixed inset-x-0 bottom-0 h-20 bg-green-200 sm:hidden" />
     </div>
   )
 }
