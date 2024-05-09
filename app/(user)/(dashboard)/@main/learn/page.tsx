@@ -6,11 +6,11 @@ export default function Learn() {
   return (
     <div className="">
       <div className="sticky top-0 mb-5 flex items-center justify-between border-b-2 bg-background pb-2 text-muted-foreground sm:z-50">
-        <NextLink href="/courses" asChild>
-          <Button variant="ghost" size="icon" className="text-inherit">
+        <Button variant="ghost" size="icon" className="text-inherit" asChild>
+          <NextLink href="/courses">
             <MoveLeft className="size-6" strokeWidth={2} />
-          </Button>
-        </NextLink>
+          </NextLink>
+        </Button>
         <h1 className="text-lg font-bold uppercase">French</h1>
       </div>
     </div>
