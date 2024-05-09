@@ -4,10 +4,10 @@ import { SideMenu } from '@/components/user/SideMenu'
 import { UserProgress } from '@/components/user/UserProgress'
 
 type UserLayoutProps = {
-  main: ReactNode
+  children: ReactNode
 }
 
-export default function UserLayout({ main }: UserLayoutProps) {
+export default function UserLayout({ children }: UserLayoutProps) {
   return (
     <div className="container flex flex-grow flex-col px-0 sm:flex-row">
       <header className="top-0 z-1 max-sm:sticky sm:w-20 lg:w-64">
@@ -24,12 +24,7 @@ export default function UserLayout({ main }: UserLayoutProps) {
         </div>
       </header>
       <main className="flex flex-1 flex-row gap-6 px-6 pb-24 pt-6 sm:pb-6 lg:gap-12">
-        <div className="flex-grow-[2] basis-[330px]">{main}</div>
-        <div className="sticky bottom-6 flex-grow basis-[280px] self-end max-md:hidden">
-          <div className="sticky top-6 flex min-h-[calc(100vh-3rem)] flex-col justify-between gap-y-4">
-            <UserProgress />
-          </div>
-        </div>
+        {children}
       </main>
     </div>
   )
