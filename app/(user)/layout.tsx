@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { MobileSheet } from '@/components/user/MobileSheet'
 import { SideMenu } from '@/components/user/SideMenu'
+import { UserProgress } from '@/components/user/UserProgress'
 
 type UserLayoutProps = {
   main: ReactNode
@@ -10,8 +11,10 @@ export default function UserLayout({ main }: UserLayoutProps) {
   return (
     <div className="container flex flex-grow flex-col px-0 sm:flex-row">
       <header className="top-0 z-1 max-sm:sticky sm:w-20 lg:w-64">
-        <div className="flex items-center justify-between border-b-2 border-primary-depth bg-primary p-2 text-primary-foreground sm:hidden">
-          <div className="" />
+        <div className="flex items-center justify-between border-b-2 border-primary-depth bg-primary p-2 text-primary-foreground/80 sm:hidden">
+          <div className="mx-auto">
+            <UserProgress muted />
+          </div>
           <MobileSheet>
             <SideMenu />
           </MobileSheet>
@@ -24,7 +27,7 @@ export default function UserLayout({ main }: UserLayoutProps) {
         <div className="flex-grow-[2] basis-[330px]">{main}</div>
         <div className="sticky bottom-6 flex-grow basis-[280px] self-end max-md:hidden">
           <div className="sticky top-6 flex min-h-[calc(100vh-3rem)] flex-col justify-between gap-y-4">
-            <div>STICKY</div>
+            <UserProgress />
           </div>
         </div>
       </main>
