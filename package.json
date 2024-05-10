@@ -6,16 +6,23 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "env:load:next": "dotenvx run --convention=nextjs --",
+    "env:load": "dotenvx run -f .env.local --",
+    "env:gen": "dotenvx genexample -f .env.local",
+    "db:studio": "pnpm env:load pnpm drizzle-kit studio",
+    "db:push": "pnpm env:load pnpm drizzle-kit push"
   },
   "dependencies": {
     "@clerk/nextjs": "^5.0.6",
+    "@neondatabase/serverless": "^0.9.3",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-slot": "^1.0.2",
     "@vercel/analytics": "^1.2.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "drizzle-orm": "^0.30.10",
     "framer-motion": "^11.1.7",
     "lucide-react": "^0.363.0",
     "next": "^14.2.3",
@@ -26,11 +33,13 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@dotenvx/dotenvx": "^0.38.0",
     "@svgr/webpack": "^8.1.0",
     "@types/node": "^20.12.8",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.0.1",
+    "drizzle-kit": "^0.21.1",
     "eslint": "^8",
     "eslint-config-next": "^14.2.3",
     "eslint-config-prettier": "^9.1.0",
