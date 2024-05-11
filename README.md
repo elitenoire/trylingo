@@ -1,5 +1,5 @@
 <div align="center">
-    <a href="https://trylingo.vercel.app">
+    <a href="https://lingoapp.vercel.app">
         <img width="600" src="./public/gh-cover.svg" alt="Lingo brand banner" title="Lingo - a duolingo clone" />
     </a>
 
@@ -53,6 +53,6 @@ Key Features:
 
 #### 💯 Credits
 
-- Logo, Illustrations are from [Freepik - Rawpixel](https://www.freepik.com/)
+- Logo, Illustrations are from [Freepik, Rawpixel](https://www.freepik.com/)
 - Banner Branding - Nagoda font
 - Google Fonts - Gabarito, Capriola

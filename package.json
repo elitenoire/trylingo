@@ -14,7 +14,7 @@
     "db:push": "pnpm env:load pnpm drizzle-kit push"
   },
   "dependencies": {
-    "@clerk/nextjs": "^5.0.6",
+    "@clerk/nextjs": "^5.0.8",
     "@neondatabase/serverless": "^0.9.3",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
     "@radix-ui/react-dialog": "^1.0.5",

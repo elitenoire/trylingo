@@ -51,7 +51,7 @@ export function MetricsItem({
         >
           <span className="absolute top-[5%] w-1/2">{children}</span>
           <span className="z-1 pt-[40%] text-[1vw] leading-none sm:text-[0.65vw] lg:text-[min(0.5vw,0.5rem)]">
-            <span className="block text-[10em] font-bold">
+            <span className="block font-mono text-[10em] font-bold">
               <AnimatedNumber suffix={suffix} once={false} {...rest} />
             </span>
             <span className="block max-w-52 text-balance text-[6em]">{description}</span>
