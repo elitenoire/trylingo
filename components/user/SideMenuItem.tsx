@@ -20,7 +20,7 @@ export function SideMenuItem({ href, icon, label, hideLabel }: SideMenuItemProps
     <li>
       <Button
         variant={isActive ? 'active' : 'ghost'}
-        className={`h-auto w-full justify-start py-2 sm:max-lg:w-auto sm:max-lg:px-2 ${isActive ? 'border-b-2' : ''}`}
+        className={`h-auto w-full justify-start py-2 sm:max-lg:w-auto sm:max-lg:px-2 ${isActive ? 'border-b-2' : 'text-foreground/85'}`}
         asChild
       >
         <NextLink href={href} title={label} {...(hideLabel && { 'aria-label': label })}>

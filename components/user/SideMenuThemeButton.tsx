@@ -9,7 +9,7 @@ export function SideMenuThemeButton({ className, ...props }: ButtonProps) {
   return (
     <Button
       variant="ghost"
-      className="h-auto w-full justify-start py-2 sm:max-lg:w-auto sm:max-lg:px-2"
+      className="h-auto w-full justify-start py-2 text-foreground/85 sm:max-lg:w-auto sm:max-lg:px-2"
       title="Toggle theme"
       {...props}
       onClick={toggle}
@@ -20,7 +20,7 @@ export function SideMenuThemeButton({ className, ...props }: ButtonProps) {
         {hydrated && (isDark ? '🌛' : '🌞')}
       </span>
       <span className="ml-5 truncate sm:max-lg:sr-only">
-        <span className="text-muted-foreground">Theme: </span>
+        <span className="text-muted-foreground/85">Theme: </span>
         {hydrated && theme}
       </span>
     </Button>

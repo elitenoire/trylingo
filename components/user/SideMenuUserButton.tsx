@@ -10,7 +10,7 @@ export function SideMenuUserButton() {
   return (
     <div className="relative flex h-[60px] items-center sm:max-lg:justify-center">
       <ClerkLoading>
-        <span className="bg-loading mx-4 size-10 rounded-full sm:max-lg:mx-2" />
+        <span className="mx-4 size-10 rounded-full bg-loading sm:max-lg:mx-2" />
       </ClerkLoading>
       <ClerkLoaded>
         <UserButton
@@ -26,7 +26,7 @@ export function SideMenuUserButton() {
           }}
         />
       </ClerkLoaded>
-      <span className="pointer-events-none absolute ml-20 font-bold uppercase sm:max-lg:sr-only">
+      <span className="pointer-events-none absolute ml-20 font-bold uppercase text-foreground/85 sm:max-lg:sr-only">
         My Profile
       </span>
     </div>
