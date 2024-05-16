@@ -6,4 +6,4 @@ export const courses = pgTable('courses', {
   altCode: varchar('alt_code', { length: 2 }).notNull(),
 })
 
-export type Courses = typeof courses.$inferSelect
+export type Course = typeof courses.$inferSelect
