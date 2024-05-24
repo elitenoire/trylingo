@@ -51,7 +51,7 @@ Key Features:
 - 🚀 Deployment on Vercel
 - 📱 Mobile responsiveness
 
-#### 💯 Credits
+### 💯 Credits
 
 - Logo, Illustrations are from [Freepik, Rawpixel](https://www.freepik.com/)
 - Banner Branding - Nagoda font

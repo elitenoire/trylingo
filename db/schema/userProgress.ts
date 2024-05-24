@@ -4,7 +4,7 @@ import { pgTable, serial, text, integer } from 'drizzle-orm/pg-core'
 import { courses } from '@/db/schema/courses'
 
 export const userProgress = pgTable('user_progress', {
-  id: serial('id').primaryKey(),
+  userId: text('user_id').primaryKey(),
   userName: text('user_name').notNull().default('User'),
   userImgSrc: text('user_img_src').notNull().default('/mascot.svg'),
   activeCourseId: integer('active_course_id').references(() => courses.id, { onDelete: 'cascade' }),

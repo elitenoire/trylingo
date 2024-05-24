@@ -16,13 +16,14 @@
     "db:push": "pnpm env:load pnpm drizzle-kit push"
   },
   "dependencies": {
-    "@clerk/nextjs": "^5.0.8",
+    "@clerk/nextjs": "^5.0.12",
     "@neondatabase/serverless": "^0.9.3",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-slot": "^1.0.2",
     "@vercel/analytics": "^1.2.2",
+    "@vercel/speed-insights": "^1.0.11",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.30.10",
@@ -36,13 +37,13 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@dotenvx/dotenvx": "^0.38.0",
+    "@dotenvx/dotenvx": "^0.44.0",
     "@svgr/webpack": "^8.1.0",
     "@types/node": "^20.12.8",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.0.1",
-    "drizzle-kit": "^0.21.1",
+    "drizzle-kit": "^0.21.4",
     "eslint": "^8",
     "eslint-config-next": "^14.2.3",
     "eslint-config-prettier": "^9.1.0",
