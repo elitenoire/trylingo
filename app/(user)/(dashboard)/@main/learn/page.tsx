@@ -1,8 +1,16 @@
 import NextLink from 'next/link'
+import { redirect } from 'next/navigation'
 import { MoveLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
-export default function Learn() {
+import { getUserProgress } from '@/db/queries/userProgress'
+
+export default async function Learn() {
+  const [userProgress] = await Promise.all([getUserProgress()])
+  if (!userProgress || !userProgress.activeCourse) {
+    redirect('/courses')
+  }
+
   return (
     <div className="">
       <div className="sticky top-0 mb-5 flex items-center justify-between border-b-2 bg-background pb-2 text-muted-foreground sm:z-50">

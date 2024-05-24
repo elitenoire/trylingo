@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { ClerkProvider } from '@clerk/nextjs'
 import { ThemeProvider } from '@/components/theme/provider'
 import { Analytics } from '@/components/Analytics'
+import { Toaster } from '@/components/ui/sonner'
 
 import { sharedMetadata } from '@/config/metadata'
 
@@ -38,6 +39,7 @@ export default function RootLayout({
         <body className={`${fonts} flex flex-col font-sans`}>
           <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
             {children}
+            <Toaster />
           </ThemeProvider>
           <Analytics />
         </body>

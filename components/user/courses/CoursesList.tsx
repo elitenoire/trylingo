@@ -1,11 +1,9 @@
-'use client'
-
 import { CoursesListCard } from '@/components/user/courses/CoursesListCard'
-import type { Course } from '@/db/schema'
+import type { CourseType, UserProgressType } from '@/db/schema'
 
 type CoursesListProps = {
-  courses: Course[]
-  activeId: number
+  courses: CourseType[]
+  activeId?: UserProgressType['activeCourseId']
 }
 
 export function CoursesList({ courses, activeId }: CoursesListProps) {
@@ -13,7 +11,7 @@ export function CoursesList({ courses, activeId }: CoursesListProps) {
     <ul className="grid grid-cols-[repeat(auto-fit,minmax(min(210px,100%),1fr))] gap-4">
       {courses.map((course) => (
         <li key={course.id}>
-          <CoursesListCard course={course} disabled={false} active={course.id === activeId} />
+          <CoursesListCard course={course} activeId={activeId} />
         </li>
       ))}
     </ul>
