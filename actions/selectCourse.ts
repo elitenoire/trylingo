@@ -9,49 +9,56 @@ import { userProgress } from '@/db/schema'
 import { getCourseById } from '@/db/queries/courses'
 import { getUserProgress } from '@/db/queries/userProgress'
 
+import { BaseError, GenericError, ServerError } from '@/lib/errors'
+
 export async function selectCourse(courseId: number) {
-  const { userId } = await auth()
-  const user = await currentUser()
+  try {
+    const { userId } = await auth()
+    const user = await currentUser()
 
-  // can only select course if user is logged in
-  if (!userId || !user) {
-    throw new Error('Unauthorized!')
+    // can only select course if user is logged in
+    if (!userId || !user) {
+      throw new ServerError('Login to access course.')
+    }
+
+    const course = await getCourseById(courseId)
+
+    // can only select course if it exists
+    if (!course) {
+      throw new ServerError('This course is unavailable.')
+    }
+
+    // TODO: enable on units implementation
+    // if (!course.units.length || !course.units[0].lesson.length){
+    //     throw new ServerError('Course is empty!');
+    // }
+
+    const currentUserProgress = await getUserProgress()
+    // data for selected course
+    const selection = {
+      activeCourseId: courseId,
+      userName: user.firstName || 'User',
+      userImgSrc: user.imageUrl || '/logo.svg',
+    }
+    // update or insert selected course in user progress
+    if (currentUserProgress) {
+      // User has progress
+      // update user progress with selected course
+      await db.update(userProgress).set(selection)
+    } else {
+      // User has no progress
+      // create user progress with selected course
+      await db.insert(userProgress).values({
+        ...selection,
+        userId,
+      })
+    }
+    // force fetch db data in cached paths to sync changes
+    revalidatePath('/courses')
+    revalidatePath('/learn')
+    redirect('/learn')
+  } catch (error) {
+    if (error instanceof BaseError) throw error
+    throw new GenericError('Something went wrong!:\n', { cause: error })
   }
-
-  const course = await getCourseById(courseId)
-
-  // can only select course if it exists
-  if (!course) {
-    throw new Error('Course not found!')
-  }
-
-  // TODO: enable on units implementation
-  // if (!course.units.length || !course.units[0].lesson.length){
-  //     throw new Error('Course is empty!');
-  // }
-
-  const currentUserProgress = await getUserProgress()
-  // data for selected course
-  const selection = {
-    activeCourseId: courseId,
-    userName: user.firstName || 'User',
-    userImgSrc: user.imageUrl || '/mascot.svg',
-  }
-  // update or insert selected course in user progress
-  if (currentUserProgress) {
-    // User has progress
-    // update user progress with selected course
-    await db.update(userProgress).set(selection)
-  } else {
-    // User has no progress
-    // create user progress with selected course
-    await db.insert(userProgress).values({
-      userId,
-      ...selection,
-    })
-  }
-  // force fetch db data to sync changes in the cached paths
-  revalidatePath('/courses')
-  revalidatePath('/learn')
-  redirect('/learn')
 }
