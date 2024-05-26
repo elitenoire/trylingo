@@ -1,11 +1,9 @@
-import { Loader } from 'lucide-react'
+import LoadingSVG from '@/public/img/icons/loader.svg'
 
-const Loading = () => {
+export default function Loading() {
   return (
-    <div className="flex h-full w-full items-center justify-center">
-      <Loader className="h-6 w-6 animate-spin text-muted-foreground" />
+    <div className="flex h-full w-full items-center justify-center rounded-xl bg-loading/70">
+      <LoadingSVG className="size-8 animate-spin" />
     </div>
   )
 }
-
-export default Loading

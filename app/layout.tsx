@@ -39,7 +39,7 @@ export default function RootLayout({
         <body className={`${fonts} flex flex-col font-sans`}>
           <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
             {children}
-            <Toaster />
+            <Toaster position="top-right" richColors />
           </ThemeProvider>
           <Analytics />
         </body>
