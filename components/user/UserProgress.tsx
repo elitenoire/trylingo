@@ -3,30 +3,35 @@ import NextImage from 'next/image'
 import { InfinityIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
+import { getUserProgress } from '@/db/queries/userProgress'
+
 type UserProgressProps = {
-  activeCourse?: { title: string; img: string }
-  hearts?: number
-  points?: number
   hasActiveSubscription?: boolean
   muted?: boolean
 }
 
 // TODO: fetch the props directly from db instead of passing them in
 
-export function UserProgress({
-  activeCourse = { title: 'French', img: '/img/flags/fr.svg' },
-  hearts = 5,
-  points = 100,
-  hasActiveSubscription,
-  muted,
-}: UserProgressProps) {
+export async function UserProgress({ hasActiveSubscription, muted }: UserProgressProps) {
+  const userProgress = await getUserProgress()
+
+  if (!userProgress || !userProgress.activeCourse) {
+    return null
+  }
+
+  const {
+    points,
+    hearts,
+    activeCourse: { title, altCode },
+  } = userProgress
+
   return (
     <div className="flex w-full items-center justify-between gap-x-2">
       <Button variant="ghost" asChild>
         <NextLink href="/courses">
           <NextImage
-            src={activeCourse.img}
-            alt={activeCourse.title}
+            src={`/img/flags/${altCode}.svg`}
+            alt={title}
             width={32}
             height={32}
             className="rounded-md border-2 border-border/80 dark:border-muted-foreground"

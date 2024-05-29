@@ -7,7 +7,9 @@ import { getUserProgress } from '@/db/queries/userProgress'
 
 export default async function Learn() {
   const [userProgress] = await Promise.all([getUserProgress()])
-  if (!userProgress || !userProgress.activeCourse) {
+
+  const activeCourse = userProgress?.activeCourse
+  if (!activeCourse) {
     redirect('/courses')
   }
 
@@ -19,7 +21,7 @@ export default async function Learn() {
             <MoveLeft className="size-6" strokeWidth={2} />
           </NextLink>
         </Button>
-        <h1 className="text-lg font-bold uppercase">French</h1>
+        <h1 className="text-lg font-bold uppercase">{activeCourse.title}</h1>
       </div>
     </div>
   )
