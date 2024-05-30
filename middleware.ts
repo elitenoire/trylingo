@@ -11,7 +11,7 @@ export default clerkMiddleware(
     // Restrict admin route to users with specific role
     if (isAdminRoute(req)) auth().protect({ role: 'org:admin' })
 
-    // auth().protect() // for any other route, require auth
+    auth().protect() // for any other route, require auth
   },
   { debug: process.env.NODE_ENV !== 'production' }
 )
