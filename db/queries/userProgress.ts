@@ -1,15 +1,25 @@
-import { cache } from 'react'
+import { unstable_cache as NextCache } from 'next/cache'
 import { auth } from '@clerk/nextjs/server'
 
 import { db } from '@/db/drizzle'
 
-export const getUserProgress = cache(async () => {
-  const { userId } = await auth()
+export const getUserProgress = async (userId?: string) => {
+  let _userId = userId
 
-  if (!userId) return null
+  if (!_userId) {
+    const { userId: _uid } = await auth()
+    if (!_uid) return null
+    _userId = _uid
+  }
 
-  return await db.query.userProgress.findFirst({
-    where: ({ userId: uid }, { eq }) => eq(uid, userId),
-    with: { activeCourse: true },
-  })
-})
+  return NextCache(
+    async (_uid: string) => {
+      return await db.query.userProgress.findFirst({
+        where: ({ userId: uid }, { eq }) => eq(uid, _uid),
+        with: { activeCourse: true },
+      })
+    },
+    ['get_user_progress', _userId],
+    { revalidate: 180, tags: ['get_user_progress', `get_user_progress::${_userId}`] }
+  )(_userId)
+}

@@ -1,7 +1,7 @@
 'use server'
 
 import { redirect } from 'next/navigation'
-import { revalidatePath } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 import { auth, currentUser } from '@clerk/nextjs/server'
 
 import { db } from '@/db/drizzle'
@@ -33,7 +33,7 @@ export async function selectCourse(courseId: number) {
     //     throw new ServerError('Course is empty!');
     // }
 
-    const currentUserProgress = await getUserProgress()
+    const currentUserProgress = await getUserProgress(userId)
     // data for selected course
     const selection = {
       activeCourseId: courseId,
@@ -53,12 +53,13 @@ export async function selectCourse(courseId: number) {
         userId,
       })
     }
-    // force fetch db data in cached paths to sync changes
-    revalidatePath('/courses')
-    revalidatePath('/learn')
-    redirect('/learn')
   } catch (error) {
     if (error instanceof BaseError) throw error
     throw new GenericError('Something went wrong!:\n', { cause: error })
   }
+  // Sync changes in cached paths
+  revalidateTag('get_user_progress')
+  revalidatePath('/courses')
+  revalidatePath('/learn')
+  redirect('/learn') // Start learning!
 }

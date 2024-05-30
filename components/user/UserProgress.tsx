@@ -1,50 +1,58 @@
 import NextLink from 'next/link'
 import NextImage from 'next/image'
-import { InfinityIcon } from 'lucide-react'
+import { InfinityIcon, Ban } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 import { getUserProgress } from '@/db/queries/userProgress'
 
 type UserProgressProps = {
   hasActiveSubscription?: boolean
-  muted?: boolean
+  plain?: boolean
 }
 
-// TODO: fetch the props directly from db instead of passing them in
-
-export async function UserProgress({ hasActiveSubscription, muted }: UserProgressProps) {
+export async function UserProgress({ hasActiveSubscription, plain }: UserProgressProps) {
   const userProgress = await getUserProgress()
 
-  if (!userProgress || !userProgress.activeCourse) {
-    return null
-  }
-
-  const {
-    points,
-    hearts,
-    activeCourse: { title, altCode },
-  } = userProgress
+  const { points = 0, hearts = 0, activeCourse } = userProgress ?? {}
+  const { title = 'Select course', altCode } = activeCourse ?? {}
 
   return (
     <div className="flex w-full items-center justify-between gap-x-2">
-      <Button variant="ghost" asChild>
+      <Button variant="ghost" className={plain ? 'dark:hover:bg-black/10' : 'group'} asChild>
         <NextLink href="/courses">
-          <NextImage
-            src={`/img/flags/${altCode}.svg`}
-            alt={title}
-            width={32}
-            height={32}
-            className="rounded-md border-2 border-border/80 dark:border-muted-foreground"
-          />
+          {altCode ? (
+            <NextImage
+              src={`/img/flags/${altCode}.svg`}
+              alt={title}
+              width={32}
+              height={32}
+              className="rounded-md border-2 border-border/80 dark:border-muted-foreground"
+            />
+          ) : (
+            <span
+              className={`rounded-md border-2 border-current px-2 py-[2px] text-border ${!plain && 'group-hover:text-foreground/85'}`}
+            >
+              <Ban className="size-5" />
+              <span className="sr-only">{title}</span>
+            </span>
+          )}
         </NextLink>
       </Button>
-      <Button variant="ghost" className={muted ? 'text-inherit' : 'text-orange-500'} asChild>
+      <Button
+        variant="ghost"
+        className={plain ? 'text-inherit dark:hover:bg-black/10' : 'text-orange-500'}
+        asChild
+      >
         <NextLink href="/shop">
           <NextImage src="/img/icons/xp.svg" alt="points" width={28} height={28} className="mr-2" />
           {points}
         </NextLink>
       </Button>
-      <Button variant="ghost" className={muted ? 'text-inherit' : 'text-rose-500'} asChild>
+      <Button
+        variant="ghost"
+        className={plain ? 'text-inherit dark:hover:bg-black/10' : 'text-rose-500'}
+        asChild
+      >
         <NextLink href="/shop">
           <NextImage
             src="/img/icons/heart.svg"
