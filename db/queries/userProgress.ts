@@ -3,7 +3,9 @@ import { auth } from '@clerk/nextjs/server'
 
 import { db } from '@/db/drizzle'
 
-export const getUserProgress = async (userId?: string) => {
+export const getUserProgress = async (userId?: string | null) => {
+  if (userId === null) return null
+
   let _userId = userId
 
   if (!_userId) {
