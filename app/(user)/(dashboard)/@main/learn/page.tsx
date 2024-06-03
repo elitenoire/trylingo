@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation'
 import { auth } from '@clerk/nextjs/server'
 import { MoveLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { Unit } from '@/components/user/learn/Unit'
 
 import { getUserProgress } from '@/db/queries/userProgress'
 import { getUnits } from '@/db/queries/units'
@@ -28,10 +29,14 @@ export default async function Learn() {
         </Button>
         <h1 className="text-lg font-bold uppercase">{activeCourse.title}</h1>
       </div>
-      {units.map((unit) => (
-        <div key={unit.id} className="mb-10">
-          {JSON.stringify(unit)}
-        </div>
+      {units.map(({ lessons, ...unit }) => (
+        <Unit
+          key={unit.id}
+          unit={unit}
+          lessons={lessons}
+          activeLesson={null}
+          activeLessonPercentage={0}
+        />
       ))}
     </div>
   )
