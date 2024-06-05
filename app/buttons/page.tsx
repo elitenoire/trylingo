@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/theme/toggle'
+import { LessonButtons } from './lessonbutton'
 
 const ButtonsPage = () => {
   return (
@@ -13,6 +14,8 @@ const ButtonsPage = () => {
         <Button>Default</Button>
         <Button variant="primary">Primary</Button>
         <Button variant="secondary">Secondary</Button>
+        <Button variant="highlight">Highlight</Button>
+        <Button variant="locked">Locked</Button>
         <Button variant="danger">Danger</Button>
         <Button variant="super">Super</Button>
         <Button variant="ghost">Ghost</Button>
@@ -26,6 +29,7 @@ const ButtonsPage = () => {
         <Button variant="incorrect">Incorrect</Button>
         <Button variant="correct">Correct</Button>
       </div>
+      <LessonButtons />
     </div>
   )
 }

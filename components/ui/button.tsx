@@ -19,9 +19,16 @@ const buttonVariants = cva(
           'bg-destructive text-destructive-foreground border-b-4 border-destructive-depth hover:bg-destructive/90 active:border-b-0',
         super:
           'bg-super text-super-foreground border-b-4 border-super-depth hover:bg-super/90 active:border-b-0',
-
+        highlight:
+          'bg-highlight-depth/75 text-super-foreground border-b-4 border-highlight-depth hover:bg-highlight-depth/65 active:border-b-0',
+        golden:
+          'bg-amber-300 text-amber-700 border-b-4 border-amber-400 hover:bg-amber-300/90 active:border-b-0',
+        locked:
+          'bg-neutral-200 text-neutral-400 border-b-4 border-current hover:bg-neutral-200/90 active:border-b-0 dark:bg-disabled dark:text-disabled-foreground dark:hover:bg-disabled/90',
         ghost:
           'bg-transparent border-2 border-transparent hover:bg-black/5 dark:bg-white/[0.015] dark:hover:bg-white/5',
+        immersive:
+          'bg-transparent text-current border-2 border-b-4 border-black/20 hover:opacity-85 active:border-b-0',
         active:
           'bg-secondary/15 text-secondary border-2 border-b-4 border-secondary/80 hover:bg-secondary/20',
         correct:

@@ -24,6 +24,7 @@
     --accent: 150 7% 94%;
     --accent-foreground: 120 3% 20%;
     --highlight: 327 87% 82%;
+    --highlight-foreground: 210 40% 98%;
     --highlight-depth: 329 86% 70%;
     --super: 271 91% 65%;
     --super-foreground: 0 0% 98%;
@@ -55,7 +56,6 @@
     --muted-foreground: 141 5% 48%;
     --accent: 142 71% 19%;
     --accent-foreground: 140 7% 82%;
-    --highlight-depth: 327 87% 82%;
     --super: 271 91% 65%;
     --super-foreground: 0 0% 98%;
     --super-depth: 271 81% 56%;
