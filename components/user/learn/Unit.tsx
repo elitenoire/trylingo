@@ -1,3 +1,4 @@
+import type { ComponentProps } from 'react'
 import { UnitBanner } from '@/components/user/learn/UnitBanner'
 import { LearnButton } from '@/components/user/learn/LearnButton'
 
@@ -8,30 +9,40 @@ type UnitProps = {
   lessons: (LessonType & { completed: boolean })[]
   activeLesson: (LessonType & { unit: UnitType }) | null
   activeLessonPercentage: number
+  variant?: ComponentProps<typeof LearnButton>['variant']
 }
 
-export function Unit({ unit, lessons, activeLesson, activeLessonPercentage }: UnitProps) {
+export function Unit({
+  variant = 'primary',
+  unit,
+  lessons,
+  activeLesson,
+  activeLessonPercentage,
+}: UnitProps) {
   const { title, description } = unit
   return (
-    <div className="">
-      <UnitBanner title={title} description={description} />
-      <div>
+    <section className="space-y-10 pb-16">
+      <UnitBanner title={title} description={description} color={variant} />
+      <ul className="flex flex-col items-center space-y-5">
         {lessons.map(({ id, completed }, idx, _lessons) => {
-          const isCurrent = id === activeLesson?.id
-          const isLocked = !isCurrent && !completed
           return (
-            <LearnButton
-              key={id}
-              id={id}
-              index={idx}
-              totalCount={_lessons.length}
-              current={isCurrent}
-              locked={isLocked}
-              percentage={activeLessonPercentage}
-            />
+            <li key={id}>
+              <LearnButton
+                id={id}
+                index={idx}
+                totalCount={_lessons.length}
+                title={title}
+                // current={id === activeLesson?.id}
+                // completed={completed}
+                current={idx === 3}
+                completed={idx < 3}
+                percentage={activeLessonPercentage}
+                variant={variant}
+              />
+            </li>
           )
         })}
-      </div>
-    </div>
+      </ul>
+    </section>
   )
 }

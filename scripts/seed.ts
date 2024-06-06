@@ -46,7 +46,7 @@ const main = async () => {
       {
         id: 1,
         title: 'Unit 1',
-        description: 'Learn the basics of Spanish.',
+        description: 'Basics of Spanish.',
         courseId: 1, // Spanish
         order: 1,
       },
@@ -59,12 +59,49 @@ const main = async () => {
         order: 1,
         title: 'Nouns',
       },
-      // {
-      //   id: 2,
-      //   unitId: 1,
-      //   order: 2,
-      //   title: 'Verbs',
-      // },
+      {
+        id: 2,
+        unitId: 1,
+        order: 2,
+        title: 'Pronouns',
+      },
+      {
+        id: 3,
+        unitId: 1, // Spanish
+        order: 3,
+        title: 'Verbs',
+      },
+      {
+        id: 4,
+        unitId: 1,
+        order: 4,
+        title: 'Adjectives',
+      },
+      {
+        id: 5,
+        unitId: 1,
+        order: 5,
+        title: 'Grammar',
+      },
+
+      {
+        id: 6,
+        unitId: 1, // Spanish
+        order: 6,
+        title: 'Verbs',
+      },
+      {
+        id: 7,
+        unitId: 1,
+        order: 7,
+        title: 'Adjectives',
+      },
+      {
+        id: 8,
+        unitId: 1,
+        order: 8,
+        title: 'Grammar',
+      },
     ])
 
     await db.insert(schema.challenges).values([
@@ -73,7 +110,7 @@ const main = async () => {
         lessonId: 1, // Nouns
         type: 'SELECT',
         order: 1,
-        question: 'Which one of these is the "the man"?',
+        question: 'Which one of these is "the man"?',
       },
     ])
 
