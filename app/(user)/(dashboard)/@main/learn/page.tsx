@@ -6,18 +6,29 @@ import { Button } from '@/components/ui/button'
 import { Unit } from '@/components/user/learn/Unit'
 
 import { getUserProgress } from '@/db/queries/userProgress'
-import { getUnits } from '@/db/queries/units'
+import { getUnits, getCourseProgress } from '@/db/queries/units'
+import { getLessonPercentage } from '@/db/queries/lessons'
 
 export default async function Learn() {
   const { userId } = await auth()
-  const userProgress = await getUserProgress(userId)
-  const { activeCourse, activeCourseId } = userProgress ?? {}
 
-  if (!activeCourse) {
+  const userProgressPromise = getUserProgress(userId)
+  const courseProgressPromise = getCourseProgress(userId)
+  const unitsPromise = getUnits(userId)
+  const lessonPercentagePromise = getLessonPercentage(userId)
+
+  const [userProgress, courseProgress] = await Promise.all([
+    userProgressPromise,
+    courseProgressPromise,
+  ])
+  const { activeCourse } = userProgress ?? {}
+  const { activeLessonId } = courseProgress ?? {}
+
+  if (!activeCourse || !activeLessonId) {
     redirect('/courses')
   }
 
-  const units = activeCourseId && userId ? await getUnits(activeCourseId, userId) : []
+  const [units, percentage] = await Promise.all([unitsPromise, lessonPercentagePromise])
 
   return (
     <div className="">
@@ -34,8 +45,10 @@ export default async function Learn() {
           key={unit.id}
           unit={unit}
           lessons={lessons}
-          activeLesson={null}
-          activeLessonPercentage={0}
+          activeLessonId={activeLessonId}
+          activeLessonPercentage={percentage}
+          // TODO: map over variants array
+          variant="primary"
         />
       ))}
     </div>

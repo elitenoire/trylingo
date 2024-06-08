@@ -19,7 +19,6 @@ export function UnitBanner({ title, description, color }: UnitBannerProps) {
         <p className="text-xl font-semibold">{description}</p>
       </div>
       <Button variant="immersive" className="max-xl:px-4" size="lg" asChild>
-        {/** @ts-expect-error add lesson route */}
         <NextLink href="/lesson">
           <NotebookText className="" />
           <span className="ml-2 max-xl:hidden">Continue</span>

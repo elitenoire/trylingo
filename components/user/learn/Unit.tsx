@@ -7,7 +7,8 @@ import type { UnitType, LessonType } from '@/db/schema'
 type UnitProps = {
   unit: UnitType
   lessons: (LessonType & { completed: boolean })[]
-  activeLesson: (LessonType & { unit: UnitType }) | null
+  // activeLesson: (LessonType & { unit: UnitType }) | null
+  activeLessonId: number
   activeLessonPercentage: number
   variant?: ComponentProps<typeof LearnButton>['variant']
 }
@@ -16,7 +17,7 @@ export function Unit({
   variant = 'primary',
   unit,
   lessons,
-  activeLesson,
+  activeLessonId,
   activeLessonPercentage,
 }: UnitProps) {
   const { title, description } = unit
@@ -32,10 +33,8 @@ export function Unit({
                 index={idx}
                 totalCount={_lessons.length}
                 title={title}
-                // current={id === activeLesson?.id}
-                // completed={completed}
-                current={idx === 3}
-                completed={idx < 3}
+                current={id === activeLessonId}
+                completed={completed}
                 percentage={activeLessonPercentage}
                 variant={variant}
               />
