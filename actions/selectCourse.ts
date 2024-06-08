@@ -13,8 +13,7 @@ import { BaseError, GenericError, ServerError } from '@/lib/errors'
 
 export async function selectCourse(courseId: number) {
   try {
-    const { userId } = await auth()
-    const user = await currentUser()
+    const [{ userId }, user] = await Promise.all([auth(), currentUser()])
 
     // can only select course if user is logged in
     if (!userId || !user) {
@@ -30,7 +29,7 @@ export async function selectCourse(courseId: number) {
 
     // TODO: enable on units implementation
     // if (!course.units.length || !course.units[0].lesson.length){
-    //     throw new ServerError('Course is empty!');
+    //     throw new ServerError('No lessons in this course!');
     // }
 
     const currentUserProgress = await getUserProgress(userId)
